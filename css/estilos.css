@@ -1,5 +1,6 @@
 body{
     font-family: 'Roboto', sans-serif;
+    box-sizing: border-box;
 }
 
 .topo{
@@ -96,4 +97,33 @@ body{
 .card-quizz>img{
     height: 181px;
     width: 340px;
+}
+
+/* tela 2 - página de um quizz */
+
+.nome-quizz{
+    display: flex;
+    position: relative;
+    margin-top: 69px;;
+    align-items: center;
+    justify-content: center;
+}
+.nome-quizz img{
+    width: 100vw;
+}
+.nome-quizz p{
+    color: #FFFFFF;
+    position: absolute;
+    font-size: 19px;
+    line-height: 22px;
+}
+.topo-pergunta{
+
+}
+.topo-pergunta p{
+    
+}
+/* Utilitarios */
+.none{
+    display: none;
 }

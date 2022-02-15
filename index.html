@@ -12,18 +12,18 @@
     <title>Buzz Quiz</title>
 </head>
 <body>
-    <header class="topo">
+    <header class="topo none">
             <p>BuzzQuizz</p>
     </header>
     <main>
-        <div class="container criar-quizz">
+        <div class="container criar-quizz none">
             <p>Você não criou nenhum quizz ainda :(</p>
             <button class="botao-quiz">Criar Quizz</button>
         </div>
-        <div class="titulo">
+        <div class="titulo none">
             <p>Todos os Quizzes</p>
         </div>
-        <div class="quizzes">
+        <div class="quizzes none">
                 <div class="container card-quizz">
                     <img src="./img/logo2.png" alt="">
                     <span>Acerte os personagens corretos dos Simpsons e prove seu amor!</span>
@@ -31,8 +31,50 @@
                 
                 <!-- renderizar quizzes -->
         </div>
+
+
+        <!-- tela 2 pagina-quizz -->
+
+        <section class="pagina-quizz">
+            <header class="topo">
+                <p>BuzzQuizz</p>
+            </header>
+            <figure class="nome-quizz">
+                <img src="img/Rectangle 34.png" alt="">
+                <p>O quão Potterhead é você?</p>
+            </figure>
+
+            <article class="perguntas">
+                <div class="pergunta">
+                <header class="topo-pergunta">
+                    <p>Em qual animal Olho-Tonto Moody transfigurou Malfoy?</p>
+                </header>
+                <figure>
+                    <img src="img/image 3.png" alt="">
+                    <p>Gatineo</p>
+                </figure>
+
+                <figure>
+                    <img src="img/image 3.png" alt="">
+                    <p>Gatineo</p>
+                </figure>
+
+                <figure>
+                    <img src="img/image 3.png" alt="">
+                    <p>Gatineo</p>
+                </figure>
+
+                <figure>
+                    <img src="img/image 3.png" alt="">
+                    <p>Gatineo</p>
+                </figure>
+            </div>
+            </article>
+        </section>
+        <!-- ---------------------------------------------- -->
+
     </main>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <script src="./js/script.js"></script>    
+    <script src="./js/script.js"></script>     
 </body>
 </html>
