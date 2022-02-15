@@ -1,0 +1,19 @@
+body{
+    font-family: 'Roboto', sans-serif;
+}
+
+.topo{
+    height: 69px;
+    background-color: #EC362D;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.topo>p{
+    color: #FFFFFF;
+    font-size: 37px;
+    font-weight: 700;
+}
+
