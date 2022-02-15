@@ -126,7 +126,6 @@ body{
     flex-wrap: wrap;
     height: auto;
     width: 100vw;
-    justify-content: space-evenly;
     background-color:  #FFFFFF;
     margin-bottom: 28px
 }
@@ -137,7 +136,7 @@ body{
     padding: 20px 16px 15px 16px;
     width: 91.43vw;
     background-color: #434CA0;
-    margin: 4.13% 4.79% 12px 4.79%;
+    margin: 18px 4.79% 12px 4.79%;
 }
 .topo-pergunta p{
     font-size: 19px;
@@ -145,6 +144,12 @@ body{
     line-height: 22px;
     color: #FFFFFF;
     text-align: center;    
+}
+.opcoes-resposta{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 0 4.79%;
 }
 .pergunta img{
     width: 43.7vw;
@@ -158,4 +163,16 @@ body{
 /* Utilitarios */
 .none{
     display: none;
+}
+.opacidade{
+    opacity: 0.3;
+}
+.resposta-certa{
+    color: #009C22;
+}
+.resposta-errada{
+    color: #FF4B4B;
+}
+.resposta-selecionada{
+
 }
