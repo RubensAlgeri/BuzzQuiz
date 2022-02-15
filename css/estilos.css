@@ -101,10 +101,14 @@ body{
 
 /* tela 2 - página de um quizz */
 
+.pagina-quizz{
+    background-color:  #E5E5E5;
+}
 .nome-quizz{
     display: flex;
     position: relative;
-    margin-top: 69px;;
+    margin-top: 69px;
+    margin-bottom: 24px;
     align-items: center;
     justify-content: center;
 }
@@ -117,11 +121,39 @@ body{
     font-size: 19px;
     line-height: 22px;
 }
+.pergunta{
+    display: flex;
+    flex-wrap: wrap;
+    height: auto;
+    width: 100vw;
+    justify-content: space-evenly;
+    background-color:  #FFFFFF;
+    margin-bottom: 28px
+}
 .topo-pergunta{
-
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 16px 15px 16px;
+    width: 91.43vw;
+    background-color: #434CA0;
+    margin: 4.13% 4.79% 12px 4.79%;
 }
 .topo-pergunta p{
-    
+    font-size: 19px;
+    font-weight: 700;
+    line-height: 22px;
+    color: #FFFFFF;
+    text-align: center;    
+}
+.pergunta img{
+    width: 43.7vw;
+}
+.img-pergunta p{
+    font-weight:  700;
+    font-size:  13px;
+    line-height: 15.23px;
+    padding: 5px 0 12px 0;
 }
 /* Utilitarios */
 .none{
