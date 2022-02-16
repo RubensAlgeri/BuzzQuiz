@@ -5,9 +5,9 @@ function buscarQuizz() {
         function displayQuizz() {
             const promessa = axios.get("https://mock-api.driven.com.br/api/v4/buzzquizz/quizzes");
             promessa.then(promessaCumprida);
-  }}
+}}
 
-  function promessaCumprida(resposta) {
+function promessaCumprida(resposta) {
     quantidadeDeCards = resposta.data.length;
     console.log("quantidade de cards"+quantidadeDeCards);
     cardQuizz = resposta.data;

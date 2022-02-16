@@ -127,7 +127,7 @@ body{
     background: linear-gradient(0deg, rgba(0, 0, 0, 0.57),rgba(0, 0, 0, 0.57));
 }
 .nome-quizz img{
-    width: 100vw;
+    object-fit: cover;
 }
 .nome-quizz p{
     color: #FFFFFF;
@@ -252,7 +252,7 @@ body{
         height: 175.2px;
     }
     .nome-quizz img{
-        width: 100vw;
+        object-fit: cover;
     }
     .nome-quizz p{
         font-size: 39px;
