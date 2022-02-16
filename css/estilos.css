@@ -165,7 +165,7 @@ body{
     justify-content: space-between;
     padding: 0 4.79%;
 }
-.pergunta img{
+.img-pergunta img{
     width: 43.7vw;
 }
 .img-pergunta p{
@@ -203,7 +203,7 @@ body{
 }
 .fim-quizz img{
     margin: 0 4.79% 9px 4.79%;
-    width: 91.43vw;
+    width: 91.42%;
 }
 .msg-final{
     color: #484848;
@@ -213,7 +213,7 @@ body{
     margin: 0 4.79% 0 4.79%;
     padding-bottom: 14px;
 }
-footer{
+.final-pag-quizz{
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
@@ -237,7 +237,46 @@ footer{
     padding: 12px;
     margin-bottom: 66px
 }
-
+@media(min-width: 1100px){
+    .container-perguntas-quizz{
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    .pergunta{
+        width: 759px;
+        height: 676px;
+    }
+    .img-pergunta img{
+        width: 329.91px;
+        height: 175.2px;
+    }
+    .nome-quizz img{
+        width: 100vw;
+    }
+    .nome-quizz p{
+        font-size: 39px;
+    }
+    .fim-quizz{
+        width: 759px;
+        height: 430px;
+    }
+    .fim-quizz img{
+        width: 364px;
+        height: 273px;
+        margin: 0;
+        margin-right: 21px;
+    }
+    .msg-final{
+        width: 318px;
+        margin: 0;
+    }
+    .meme-final{
+        display: flex;
+        justify-content: center;
+        margin: 0 4.79% 0;
+    }
+}
 /* Utilitarios */
 .none{
     display: none;
