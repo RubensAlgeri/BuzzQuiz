@@ -26,3 +26,5 @@ function renderizarQuizzes(cardQuizz){
         `
     }
 }
+
+buscarQuizz()
