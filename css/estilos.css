@@ -371,11 +371,11 @@ input::placeholder {
     opacity: 0.3;
 }
 .resposta-certa{
-    color: #009C22;
+    color: var(--cor-certa);
 }
 .resposta-errada{
-    color: #FF4B4B;
+    color: var(--cor-errada);
 }
-/* .resposta-selecionada{
+.resposta-selecionada{
 
-} */
+}
