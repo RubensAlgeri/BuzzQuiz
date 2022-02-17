@@ -79,7 +79,7 @@ function renderizarPerguntas(quizz){
             </li>
             </ul>`
 
-            document.querySelector(".topo-pergunta").style.backgroundColor = `${corTitulo}`;
+            document.querySelector("ul:last-child header").style.setProperty("--cor-pergunta",element.color);
             respostas.sort(comparador);
 
             respostas.forEach(element => {
@@ -95,7 +95,7 @@ function renderizarPerguntas(quizz){
 
                 document.querySelector("ul:last-child li").innerHTML +=
                 `
-                <figure onclick="selecionarResposta()" class="img-pergunta">
+                <figure onclick="selecionarResposta(this)" class="img-pergunta">
                 <img src="${imgResposta}" alt="">
                 <p class="${certaOuErrada}">${textoResposta}</p>
                 </figure>
@@ -103,6 +103,10 @@ function renderizarPerguntas(quizz){
             });
 
         });
+}
+
+function selecionarResposta(){
+
 }
 function comparador() {
     return Math.random() - 0.5;
