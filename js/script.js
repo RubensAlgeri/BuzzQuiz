@@ -35,7 +35,7 @@ function acessarQuizz(id){
     document.querySelector(".home").classList.add("none");
     document.querySelector(".pagina-quizz").classList.remove("none");
     const promise = axios.get(`https://mock-api.driven.com.br/api/v4/buzzquizz/quizzes/${idDoQuizz}`);
-    promise.then(renderizarPerguntas);
+    promise.then(obterPerguntas);
 }
 
 
@@ -51,13 +51,17 @@ let textoResposta;
 let valorResposta;
 let certaOuErrada;
 
-function renderizarPerguntas(quizz){
+function obterPerguntas(quizz){
     objeto1 = quizz.data;
+    objeto2 = objeto1.levels;
 
-        tituloQuiz = objeto1.title;
-        tituloImg = objeto1.image;
-        perguntas = objeto1.questions;
+    tituloQuiz = objeto1.title;
+    tituloImg = objeto1.image;
+    perguntas = objeto1.questions;
 
+    renderizarPerguntas();
+}
+function renderizarPerguntas(){
         document.querySelector(".nome-quizz").innerHTML =
         `<div class="img-gradient">
         <img src="${tituloImg}" style="width: 100vw; height: 200px;" alt="">
@@ -85,7 +89,7 @@ function renderizarPerguntas(quizz){
             respostas.forEach(element => {
                 textoResposta = element.text;
                 imgResposta = element.image;
-                valorResposta = element.isCorzrectAnswer;
+                valorResposta = element.isCorrectAnswer;
 
                 if(valorResposta === true){
                     certaOuErrada = "resposta-certa"
@@ -96,18 +100,76 @@ function renderizarPerguntas(quizz){
                 document.querySelector("ul:last-child li").innerHTML +=
                 `
                 <figure onclick="selecionarResposta(this)" class="img-pergunta">
-                <img src="${imgResposta}" alt="">
-                <p class="${certaOuErrada}">${textoResposta}</p>
+                <img src="${imgResposta}" alt="${textoResposta}">
+                <p class="${certaOuErrada}"> ${textoResposta}</p>
                 </figure>
                 `
             });
 
         });
 }
+let acertos = 0;
+let respostaSelecionada;
+function selecionarResposta(resposta){
+    verificar++;
+    respostaSelecionada = resposta;
+    respostaSelecionada.classList.add("resposta-selecionada");
 
-function selecionarResposta(){
+    respostaSelecionada.parentNode.querySelectorAll("figure").forEach(element=>{
+        element.removeAttribute("onclick");
+    })
+    
+    if(respostaSelecionada.querySelector(".resposta-certa")!==null){
+        acertos++;
+    }
 
+    let selecionada = respostaSelecionada.parentNode.querySelectorAll("figure:not(.resposta-selecionada)");
+    selecionada.forEach(element=>{
+        element.classList.add("opacidade");
+    })
+
+    respostaSelecionada.parentNode.querySelector(".resposta-certa").style.setProperty("--cor-certa","#009C22");
+    
+    let respostaErrada = respostaSelecionada.parentNode.querySelectorAll(".resposta-errada");
+    respostaErrada.forEach(element=>{
+        element.style.setProperty("--cor-errada","#FF4B4B");
+    })
+
+    checarFimDoQuizz();
 }
+
+let verificar = 0;
+let objeto2 = [];
+function checarFimDoQuizz(){
+    if(verificar === perguntas.length){
+        let minValue = Math.round((acertos / perguntas.length)*100);
+        
+        objeto2.forEach(element=>{
+        if(element.minValue>=minValue){
+
+        document.querySelector(".fim-quizz").classList.remove("none");
+
+        document.querySelector(".fim-quizz").innerHTML = 
+        `<header class="topo-fim-quizz">
+        <p>${minValue}% de acerto: ${element.title}</p>
+        </header>
+        <div class="meme-final">
+        <img src="${element.image}" alt="meme de harry potter">
+        <p class="msg-final">${element.text}</p>
+        </div>`
+    }
+});
+}
+}
+
+function reiniciarQuizz(){
+    verificar = 0;
+    acertos = 0;
+    document.querySelector(".perguntas").innerHTML = '';
+    document.querySelector(".fim-quizz").classList.add("none");
+    renderizarPerguntas();
+}
+
 function comparador() {
     return Math.random() - 0.5;
 }
@@ -131,6 +193,8 @@ function voltar(){
     
     document.querySelector(".pagina-quizz").classList.add("none")
     document.querySelector(".criacao-quiz").classList.add("none")
+    document.querySelector(".fim-quizz").classList.add("none");
+    document.querySelector(".pagina-quizz").classList.add("none");
     document.querySelector(".home").classList.remove("none")
     
 }
