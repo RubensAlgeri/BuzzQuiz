@@ -182,8 +182,30 @@ body{
     justify-content: space-between;
     padding: 0 4.79%;
 }
+.img-pergunta:nth-child(2){
+    margin-left: 4.79%;
+}
+.img-pergunta:nth-child(3){
+    margin-right: 4.79%;
+    margin-left: auto;
+}
+.img-pergunta:nth-child(5){
+    margin-left: 4.79%;
+}
+.img-pergunta:nth-child(6){
+    margin-right: 4.79%;
+    margin-left: auto;
+}
+.img-pergunta:nth-child(8){
+    margin-left: 4.79%;
+}
+.img-pergunta:nth-child(9){
+    margin-right: 4.79%;
+    margin-left: auto;
+}
 .img-pergunta img{
     width: 43.7vw;
+    height: auto;
 }
 .img-pergunta p{
     font-weight:  700;

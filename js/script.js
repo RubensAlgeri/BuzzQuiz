@@ -21,8 +21,7 @@ function renderizarQuizzes(cardQuizz){
     divQuizzes.innerHTML = ""
     for (let i = 0; i < quantidadeDeCards; i++ ){
         divQuizzes.innerHTML += `
-        <div onclick="acessarQuizz(this)" class="container card-quizz">
-        <div class="container card-quizz" onclick="Perguntas()">
+        <div class="container card-quizz" onclick="acessarQuizz(this)">
                     <div class="layer"></div>
                     <img src="${cardQuizz[i].image}" alt="">
                     <span>${cardQuizz[i].title}</span>
@@ -30,32 +29,38 @@ function renderizarQuizzes(cardQuizz){
         `
     }
 }
-let idDoQuizz;
-let objetoQuizz;
-function acessarQuizz(idQuizz){
-    objetoQuizz = idQuizz;
-    idDoQuizz = objetoQuizz.id;
 
-    document.querySelector(".tela-inicial").classList.add("none");
+let idDoQuizz = [];
+let id;
+function acessarQuizz(){
+
+    document.querySelector(".home").classList.add("none");
     document.querySelector(".pagina-quizz").classList.remove("none");
-    const promessa = axios.get("https://mock-api.driven.com.br/api/v4/buzzquizz/quizzes");
-    promessa.then(renderizarPerguntas);
+    const promise = axios.get("https://mock-api.driven.com.br/api/v4/buzzquizz/quizzes");
+    promise.then(acessarQuizzEspecifico);
 }
 
 let objeto = [];
+let objeto1 = [];
 let tituloQuiz;
 let tituloImg;
 let perguntas = [];
 let respostas = [];
 let certaOuErrada;
 
-function renderizarPerguntas(quizz){
+function acessarQuizzEspecifico(quizz){
     objeto = quizz.data;
-    if(idDoQuizz === objeto.id){
-    objeto.forEach(element => {
-        tituloQuiz = element.title;
-        tituloImg = element.image;
-        perguntas = element.questions;
+    idDoQuizz = objeto[0].id;
+    const promises = axios.get(`https://mock-api.driven.com.br/api/v4/buzzquizz/quizzes/${idDoQuizz}`);
+    promises.then(renderizarPerguntas);
+}
+
+function renderizarPerguntas(quizz){
+    objeto1 = quizz.data;
+
+        tituloQuiz = objeto1.title;
+        tituloImg = objeto1.image;
+        perguntas = objeto1.questions;
 
         document.querySelector(".nome-quizz").innerHTML =
         `<div class="img-gradient">
@@ -87,17 +92,15 @@ function renderizarPerguntas(quizz){
                 }
 
                 document.querySelector(".pergunta").innerHTML +=
-                `<li class="opcoes-resposta">
-                <figure class="img-pergunta">
+                `
+                <figure onclick="selecionarResposta()" class="img-pergunta">
                 <img src="${imgResposta}" alt="">
                 <p class="${certaOuErrada}">${textoResposta}</p>
-            </figure>
-            </li>`
+                </figure>
+                `
             });
 
         });
-    });
-}
 }
 
 function seusQuizzes(){
@@ -107,13 +110,6 @@ function seusQuizzes(){
     } else{
     }
 }
-
-// Renderizar as Perguntas
-function Perguntas(){
-    document.querySelector(".home").classList.add("none")
-    document.querySelector(".pagina-quizz").classList.remove("none")
-}
-
 
 function criarQuizz(){
     document.querySelector(".home").classList.add("none")
