@@ -151,6 +151,7 @@ body{
     position: absolute;
     font-size: 19px;
     line-height: 22px;
+    padding: 0 4.79%;
 }
 .pergunta{
     display: flex;
@@ -166,7 +167,7 @@ body{
     align-items: center;
     padding: 20px 16px 15px 16px;
     width: 91.43vw;
-    background-color: #434CA0;
+    background-color: var(--cor-pergunta);
     margin: 18px 4.79% 12px 4.79%;
 }
 .topo-pergunta p{
@@ -177,16 +178,20 @@ body{
     text-align: center;    
 }
 .opcoes-resposta{
+    width: 100vw;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
     padding: 0 4.79%;
 }
+
 .img-pergunta img{
     width: 43.7vw;
+    height: auto;
 }
 .img-pergunta p{
     font-weight:  700;
+    max-width: 43.7vw;
     font-size:  13px;
     line-height: 15.23px;
     padding: 5px 0 12px 0;

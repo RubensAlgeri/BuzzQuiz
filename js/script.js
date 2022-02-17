@@ -21,8 +21,7 @@ function renderizarQuizzes(cardQuizz){
     divQuizzes.innerHTML = ""
     for (let i = 0; i < quantidadeDeCards; i++ ){
         divQuizzes.innerHTML += `
-        <div onclick="acessarQuizz(this)" class="container card-quizz">
-        <div class="container card-quizz" onclick="Perguntas()">
+        <div class="container card-quizz" onclick="acessarQuizz(${cardQuizz[i].id})">
                     <div class="layer"></div>
                     <img src="${cardQuizz[i].image}" alt="">
                     <span>${cardQuizz[i].title}</span>
@@ -30,32 +29,34 @@ function renderizarQuizzes(cardQuizz){
         `
     }
 }
-let idDoQuizz;
-let objetoQuizz;
-function acessarQuizz(idQuizz){
-    objetoQuizz = idQuizz;
-    idDoQuizz = objetoQuizz.id;
 
-    document.querySelector(".tela-inicial").classList.add("none");
+function acessarQuizz(id){
+    idDoQuizz = id;
+    document.querySelector(".home").classList.add("none");
     document.querySelector(".pagina-quizz").classList.remove("none");
-    const promessa = axios.get("https://mock-api.driven.com.br/api/v4/buzzquizz/quizzes");
-    promessa.then(renderizarPerguntas);
+    const promise = axios.get(`https://mock-api.driven.com.br/api/v4/buzzquizz/quizzes/${idDoQuizz}`);
+    promise.then(renderizarPerguntas);
 }
 
-let objeto = [];
+
+let objeto1 = [];
 let tituloQuiz;
 let tituloImg;
 let perguntas = [];
+let corTitulo;
+let tituloPergunta;
 let respostas = [];
+let imgResposta;
+let textoResposta;
+let valorResposta;
 let certaOuErrada;
 
 function renderizarPerguntas(quizz){
-    objeto = quizz.data;
-    if(idDoQuizz === objeto.id){
-    objeto.forEach(element => {
-        tituloQuiz = element.title;
-        tituloImg = element.image;
-        perguntas = element.questions;
+    objeto1 = quizz.data;
+
+        tituloQuiz = objeto1.title;
+        tituloImg = objeto1.image;
+        perguntas = objeto1.questions;
 
         document.querySelector(".nome-quizz").innerHTML =
         `<div class="img-gradient">
@@ -68,17 +69,23 @@ function renderizarPerguntas(quizz){
             corTitulo = element.color;
             respostas = element.answers;
 
-            document.querySelector(".pergunta").innerHTML +=
-            `<header class="topo-pergunta">
+            document.querySelector(".perguntas").innerHTML +=
+            `<ul class="pergunta">
+            <header class="topo-pergunta">
             <p>${tituloPergunta}</p>
-            </header>`
+            </header>
+            <li class="opcoes-resposta">
 
-            document.querySelector(".topo-pergunta").style.backgroundColor = `${corTitulo}`;
+            </li>
+            </ul>`
+
+            document.querySelector("ul:last-child header").style.setProperty("--cor-pergunta",element.color);
+            respostas.sort(comparador);
 
             respostas.forEach(element => {
                 textoResposta = element.text;
                 imgResposta = element.image;
-                valorResposta = element.isCorrectAnswer;
+                valorResposta = element.isCorzrectAnswer;
 
                 if(valorResposta === true){
                     certaOuErrada = "resposta-certa"
@@ -86,18 +93,23 @@ function renderizarPerguntas(quizz){
                     certaOuErrada = "resposta-errada"
                 }
 
-                document.querySelector(".pergunta").innerHTML +=
-                `<li class="opcoes-resposta">
-                <figure class="img-pergunta">
+                document.querySelector("ul:last-child li").innerHTML +=
+                `
+                <figure onclick="selecionarResposta(this)" class="img-pergunta">
                 <img src="${imgResposta}" alt="">
                 <p class="${certaOuErrada}">${textoResposta}</p>
-            </figure>
-            </li>`
+                </figure>
+                `
             });
 
         });
-    });
 }
+
+function selecionarResposta(){
+
+}
+function comparador() {
+    return Math.random() - 0.5;
 }
 
 function seusQuizzes(){
@@ -107,13 +119,6 @@ function seusQuizzes(){
     } else{
     }
 }
-
-// Renderizar as Perguntas
-function Perguntas(){
-    document.querySelector(".home").classList.add("none")
-    document.querySelector(".pagina-quizz").classList.remove("none")
-}
-
 
 function criarQuizz(){
     document.querySelector(".home").classList.add("none")
