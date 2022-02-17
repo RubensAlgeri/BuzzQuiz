@@ -29,28 +29,45 @@
     <title>Buzz Quiz</title>
 </head>
 <body>
-    <header class="topo">
+    <header class="topo" onclick="voltar()">
             <p>BuzzQuizz</p>
     </header>
     <main>
-        <section class="">
-
-        <div class="container criar-quizz">
+        <section class="home">
+        <!-- ...SEUS QUIZZES.. -->
+        <div class="seus-quizzes none">
+            <div class="titulo">
+                <p>Seus Quizes</p>
+                <ion-icon name="add-circle"></ion-icon>
+            </div>
+            <div class="quizzes">
+                    <div class="container card-quizz" onclick="Perguntas()">
+                        <div class="layer"></div>
+                        <img src="./img/simpsons.png" alt="">
+                        <span>Acerte os personagens corretos dos Simpsons e prove seu amor!</span>
+                    </div>
+                    
+                    <!-- renderizar SEUS quizzes -->
+            </div>
+        </div>
+        <!-- ...... -->
+        <div class="container criar-quizz ">
             <p>Você não criou nenhum quizz ainda :(</p>
             <button class="botao-quiz">Criar Quizz</button>
         </div>
         <div class="titulo">
             <p>Todos os Quizzes</p>
         </div>
-        <div class="quizzes">
-                <div class="container card-quizz">
+        <div class="quizzes quiz-api">
+                <div class="container card-quizz" onclick="Perguntas()">
+                    <div class="layer"></div>
                     <img src="./img/simpsons.png" alt="">
                     <span>Acerte os personagens corretos dos Simpsons e prove seu amor!</span>
                 </div>
                 
                 <!-- renderizar quizzes -->
         </div>
-    </section>
+        </section>
 
 
         <!-- tela 2 pagina-quizz -->
@@ -142,6 +159,7 @@
 
     </main>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script src="./js/script.js"></script>     
     <script src="./js/script2.js"></script>     
 </body>
