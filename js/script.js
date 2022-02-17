@@ -21,7 +21,7 @@ function renderizarQuizzes(cardQuizz){
     divQuizzes.innerHTML = ""
     for (let i = 0; i < quantidadeDeCards; i++ ){
         divQuizzes.innerHTML += `
-        <div class="container card-quizz" onclick="acessarQuizz(this)">
+        <div class="container card-quizz" onclick="acessarQuizz(${cardQuizz[i].id})">
                     <div class="layer"></div>
                     <img src="${cardQuizz[i].image}" alt="">
                     <span>${cardQuizz[i].title}</span>
@@ -30,30 +30,26 @@ function renderizarQuizzes(cardQuizz){
     }
 }
 
-let idDoQuizz = [];
-let id;
-function acessarQuizz(){
-
+function acessarQuizz(id){
+    idDoQuizz = id;
     document.querySelector(".home").classList.add("none");
     document.querySelector(".pagina-quizz").classList.remove("none");
-    const promise = axios.get("https://mock-api.driven.com.br/api/v4/buzzquizz/quizzes");
-    promise.then(acessarQuizzEspecifico);
+    const promise = axios.get(`https://mock-api.driven.com.br/api/v4/buzzquizz/quizzes/${idDoQuizz}`);
+    promise.then(renderizarPerguntas);
 }
 
-let objeto = [];
+
 let objeto1 = [];
 let tituloQuiz;
 let tituloImg;
 let perguntas = [];
+let corTitulo;
+let tituloPergunta;
 let respostas = [];
+let imgResposta;
+let textoResposta;
+let valorResposta;
 let certaOuErrada;
-
-function acessarQuizzEspecifico(quizz){
-    objeto = quizz.data;
-    idDoQuizz = objeto[0].id;
-    const promises = axios.get(`https://mock-api.driven.com.br/api/v4/buzzquizz/quizzes/${idDoQuizz}`);
-    promises.then(renderizarPerguntas);
-}
 
 function renderizarPerguntas(quizz){
     objeto1 = quizz.data;
@@ -73,17 +69,23 @@ function renderizarPerguntas(quizz){
             corTitulo = element.color;
             respostas = element.answers;
 
-            document.querySelector(".pergunta").innerHTML +=
-            `<header class="topo-pergunta">
+            document.querySelector(".perguntas").innerHTML +=
+            `<ul class="pergunta">
+            <header class="topo-pergunta">
             <p>${tituloPergunta}</p>
-            </header>`
+            </header>
+            <li class="opcoes-resposta">
+
+            </li>
+            </ul>`
 
             document.querySelector(".topo-pergunta").style.backgroundColor = `${corTitulo}`;
+            respostas.sort(comparador);
 
             respostas.forEach(element => {
                 textoResposta = element.text;
                 imgResposta = element.image;
-                valorResposta = element.isCorrectAnswer;
+                valorResposta = element.isCorzrectAnswer;
 
                 if(valorResposta === true){
                     certaOuErrada = "resposta-certa"
@@ -91,7 +93,7 @@ function renderizarPerguntas(quizz){
                     certaOuErrada = "resposta-errada"
                 }
 
-                document.querySelector(".pergunta").innerHTML +=
+                document.querySelector("ul:last-child li").innerHTML +=
                 `
                 <figure onclick="selecionarResposta()" class="img-pergunta">
                 <img src="${imgResposta}" alt="">
@@ -101,6 +103,9 @@ function renderizarPerguntas(quizz){
             });
 
         });
+}
+function comparador() {
+    return Math.random() - 0.5;
 }
 
 function seusQuizzes(){
