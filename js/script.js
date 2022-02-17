@@ -138,4 +138,4 @@ function voltar(){
 
 
 
-buscarQuizz()
+// buscarQuizz()

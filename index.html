@@ -35,7 +35,7 @@
         <p>BuzzQuizz</p>
     </header>
     <main>
-        <section class="home">
+        <section class="home none">
             <!-- ...SEUS QUIZZES.. -->
             <div class="seus-quizzes none">
                 <div class="titulo">
@@ -105,12 +105,12 @@
                     <p>Comece pelo começo</p>
                 </div>
                 <ul class="caixa">
-                    <li><input type="text" placeholder="Título do seu quizz"></li>
-                    <li><input type="text" placeholder="URL da imagem do seu quizz"></li>   
-                    <li><input type="text" placeholder="Quantidade de perguntas do quizz"></li>
-                    <li><input type="text" placeholder="Quantidade de níveis do quizz"></li>
+                    <li><input class="criacao-titulo" type="text" placeholder="Título do seu quizz"></li>
+                    <li><input class="criacao-img" type="url" placeholder="URL da imagem do seu quizz"></li>   
+                    <li><input class="criacao-qnt-perguntas" type="text" placeholder="Quantidade de perguntas do quizz"></li>
+                    <li><input class="criacao-qnt-niveis" type="text" placeholder="Quantidade de níveis do quizz"></li>
                 </ul>
-                <button class="botao">Prosseguir pra criar perguntas</button>
+                <button class="botao" onclick="criarQuizz()">Prosseguir pra criar perguntas</button>
             </div>
 
             <div class="segunda-tela-criacao none">
@@ -118,12 +118,31 @@
                     <p>Crie suas perguntas</p>
                 </div>
                 <ul class="caixa">
-                    <div class="titulo pergunta1 "><p>Pergunta 1</p></div>
+                    <div class="pergunta ">Pergunta 1</div>
                     <li><input type="text" placeholder="Texto da pergunta"></li>
-                    <li><input type="text" placeholder="Cor de fundo da pergunta"></li>   
-                    <li><input type="text" placeholder="Quantidade de perguntas do quizz"></li>
-                    <li><input type="text" placeholder="Quantidade de níveis do quizz"></li>
+                    <li><input type="text" placeholder="Cor de fundo da pergunta"></li> 
+                
+                    <div class="pergunta ">Resposta correta</div> 
+                    <li><input type="text" placeholder="Resposta correta"></li>
+                    <li><input type="text" placeholder="URL da imagem"></li>
+                
+                    <div class="pergunta ">Respostas incorretas</div>
+                    <li><input type="text" placeholder="Resposta incorreta 1"></li>
+                    <li><input type="text" placeholder="URL da imagem 1"></li> 
+                
+                    <div class="pergunta "></div> 
+                    <li><input type="text" placeholder="Resposta incorreta 2"></li>
+                    <li><input type="text" placeholder="URL da imagem 2"></li>
+                 
+                    <div class="pergunta "></div> 
+                    <li><input type="text" placeholder="Resposta incorreta 3"></li>
+                    <li><input type="text" placeholder="URL da imagem 3"></li>
                 </ul>
+
+                <!-- <ul class="caixa">
+
+                </ul> -->
+
                 <button class="botao">Prosseguir pra criar perguntas</button>
             </div>
 
