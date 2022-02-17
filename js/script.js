@@ -35,7 +35,7 @@ function acessarQuizz(id){
     document.querySelector(".home").classList.add("none");
     document.querySelector(".pagina-quizz").classList.remove("none");
     const promise = axios.get(`https://mock-api.driven.com.br/api/v4/buzzquizz/quizzes/${idDoQuizz}`);
-    promise.then(renderizarPerguntas);
+    promise.then(obterPerguntas);
 }
 
 
@@ -51,14 +51,17 @@ let textoResposta;
 let valorResposta;
 let certaOuErrada;
 
-function renderizarPerguntas(quizz){
+function obterPerguntas(quizz){
     objeto1 = quizz.data;
     objeto2 = objeto1.levels;
 
-        tituloQuiz = objeto1.title;
-        tituloImg = objeto1.image;
-        perguntas = objeto1.questions;
+    tituloQuiz = objeto1.title;
+    tituloImg = objeto1.image;
+    perguntas = objeto1.questions;
 
+    renderizarPerguntas();
+}
+function renderizarPerguntas(){
         document.querySelector(".nome-quizz").innerHTML =
         `<div class="img-gradient">
         <img src="${tituloImg}" style="width: 100vw; height: 200px;" alt="">
@@ -140,8 +143,9 @@ let objeto2 = [];
 function checarFimDoQuizz(){
     if(verificar === perguntas.length){
         let minValue = Math.round((acertos / perguntas.length)*100);
+        
         objeto2.forEach(element=>{
-        if(element.minValue<=minValue){
+        if(element.minValue>=minValue){
 
         document.querySelector(".fim-quizz").classList.remove("none");
 
@@ -156,6 +160,14 @@ function checarFimDoQuizz(){
     }
 });
 }
+}
+
+function reiniciarQuizz(){
+    verificar = 0;
+    acertos = 0;
+    document.querySelector(".perguntas").innerHTML = '';
+    document.querySelector(".fim-quizz").classList.add("none");
+    renderizarPerguntas();
 }
 
 function comparador() {
@@ -181,6 +193,8 @@ function voltar(){
     
     document.querySelector(".pagina-quizz").classList.add("none")
     document.querySelector(".criacao-quiz").classList.add("none")
+    document.querySelector(".fim-quizz").classList.add("none");
+    document.querySelector(".pagina-quizz").classList.add("none");
     document.querySelector(".home").classList.remove("none")
     
 }
