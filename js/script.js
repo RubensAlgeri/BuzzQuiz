@@ -1,7 +1,8 @@
 let cardQuizz, possuiQuizz
 
 function buscarQuizz() {
-    setInterval(displayQuizz, 3000);
+    displayQuizz()
+    setInterval(displayQuizz, 5000);
         function displayQuizz() {
             seusQuizzes()
             const promessa = axios.get("https://mock-api.driven.com.br/api/v4/buzzquizz/quizzes");
@@ -43,10 +44,20 @@ function Perguntas(){
     document.querySelector(".pagina-quizz").classList.remove("none")
 }
 
+
+function criarQuizz(){
+    document.querySelector(".home").classList.add("none")
+    document.querySelector(".criacao-quiz").classList.remove("none")
+}
+
+
+
 function voltar(){
     
     document.querySelector(".pagina-quizz").classList.add("none")
+    document.querySelector(".criacao-quiz").classList.add("none")
     document.querySelector(".home").classList.remove("none")
+    
 }
 
 

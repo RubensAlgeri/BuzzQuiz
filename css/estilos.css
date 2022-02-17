@@ -1,6 +1,7 @@
 body{
     font-family: 'Roboto', sans-serif;
     box-sizing: border-box;
+    background-color: #fafafa;
 }
 
 .topo{
@@ -293,6 +294,70 @@ body{
         margin: 0 4.79% 0;
     }
 }
+/* Tela 3  */
+.criacao-quiz{
+    margin-top: 106px;
+    display: flex;
+    /* justify-items: center; */
+}
+.criacao{
+    width: 100vw;
+    margin: 0 auto 19px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.primeira-tela{
+}
+
+.comeco{
+    height: 256px;
+    background-color: #ffffff;
+    justify-content: center;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.comeco>li>input{
+    height: 46px;
+    width: 341px;
+    margin-bottom: 9px;
+    border-radius: 5px;
+    border: 1px solid #D1D1D1;
+    font-size: 19px;
+    font-weight: 400;
+    font-style: italic;
+}
+input::placeholder {
+    color: #bababa;
+  }
+
+.botao{
+    height: 54px;
+    width: 324px;
+    background-color: #EC362D;
+    color:#fafafa;
+    font-size: 18px;
+    text-align: center;
+    border-radius: 15px;
+    margin: 29px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+
+
+
+
+
+/* ................................................................ */
 /* Utilitarios */
 .none{
     display: none;

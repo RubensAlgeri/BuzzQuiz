@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,7 +9,9 @@
     <link rel="stylesheet" href="css/estilos.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,100;1,300;1,400;1,500&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,100;1,300;1,400;1,500&display=swap"
+        rel="stylesheet">
     <link rel="apple-touch-icon" sizes="57x57" href="favicon/apple-icon-57x57.png">
     <link rel="apple-touch-icon" sizes="60x60" href="favicon/apple-icon-60x60.png">
     <link rel="apple-touch-icon" sizes="72x72" href="favicon/apple-icon-72x72.png">
@@ -18,7 +21,7 @@
     <link rel="apple-touch-icon" sizes="144x144" href="favicon/apple-icon-144x144.png">
     <link rel="apple-touch-icon" sizes="152x152" href="favicon/apple-icon-152x152.png">
     <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-icon-180x180.png">
-    <link rel="icon" type="image/png" sizes="192x192"  href="favicon/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="favicon/android-icon-192x192.png">
     <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="96x96" href="favicon/favicon-96x96.png">
     <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
@@ -28,45 +31,46 @@
     <meta name="theme-color" content="#ffffff">
     <title>Buzz Quiz</title>
 </head>
+
 <body>
     <header class="topo" onclick="voltar()">
-            <p>BuzzQuizz</p>
+        <p>BuzzQuizz</p>
     </header>
     <main>
         <section class="home">
-        <!-- ...SEUS QUIZZES.. -->
-        <div class="seus-quizzes none">
-            <div class="titulo">
-                <p>Seus Quizes</p>
-                <ion-icon name="add-circle"></ion-icon>
-            </div>
-            <div class="quizzes">
+            <!-- ...SEUS QUIZZES.. -->
+            <div class="seus-quizzes none">
+                <div class="titulo">
+                    <p>Seus Quizes</p>
+                    <ion-icon name="add-circle" onclick="criarQuizz()"></ion-icon>
+                </div>
+                <div class="quizzes">
                     <div class="container card-quizz" onclick="Perguntas()">
                         <div class="layer"></div>
                         <img src="./img/simpsons.png" alt="">
                         <span>Acerte os personagens corretos dos Simpsons e prove seu amor!</span>
                     </div>
-                    
+
                     <!-- renderizar SEUS quizzes -->
+                </div>
             </div>
-        </div>
-        <!-- ...... -->
-        <div class="container criar-quizz ">
-            <p>Você não criou nenhum quizz ainda :(</p>
-            <button class="botao-quiz">Criar Quizz</button>
-        </div>
-        <div class="titulo">
-            <p>Todos os Quizzes</p>
-        </div>
-        <div class="quizzes quiz-api">
+            <!-- ...... -->
+            <div class="container criar-quizz " onclick="criarQuizz()">
+                <p>Você não criou nenhum quizz ainda :(</p>
+                <button class="botao-quiz">Criar Quizz</button>
+            </div>
+            <div class="titulo">
+                <p>Todos os Quizzes</p>
+            </div>
+            <div class="quizzes quiz-api">
                 <div class="container card-quizz" onclick="Perguntas()">
                     <div class="layer"></div>
                     <img src="./img/simpsons.png" alt="">
                     <span>Acerte os personagens corretos dos Simpsons e prove seu amor!</span>
                 </div>
-                
+
                 <!-- renderizar quizzes -->
-        </div>
+            </div>
         </section>
 
 
@@ -75,92 +79,113 @@
         <section class="pagina-quizz none">
             <figure class="nome-quizz">
                 <div class="img-gradient">
-                <img src="img/Rectangle 34.png" style="width: 100vw; height: 200px;" alt="">
-            </div>
+                    <img src="img/Rectangle 34.png" style="width: 100vw; height: 200px;" alt="">
+                </div>
                 <p>O quão Potterhead é você?</p>
             </figure>
             <section class="container-perguntas-quizz">
-            <article class="perguntas">
+                <article class="perguntas">
 
-                <ul class="pergunta">
+                    <ul class="pergunta">
 
-                <header class="topo-pergunta">
-                    <p>Em qual animal Olho-Tonto Moody transfigurou Malfoy?</p>
-                </header>
+                        <header class="topo-pergunta">
+                            <p>Em qual animal Olho-Tonto Moody transfigurou Malfoy?</p>
+                        </header>
 
-                <li class="opcoes-resposta">
+                        <li class="opcoes-resposta">
 
-                <figure class="img-pergunta">
-                    <img src="img/image 3.png" alt="">
-                    <p>Gatineo</p>
-                </figure>
+                            <figure class="img-pergunta">
+                                <img src="img/image 3.png" alt="">
+                                <p>Gatineo</p>
+                            </figure>
 
-                <figure class="img-pergunta">
-                    <img src="img/image 3.png" alt="">
-                    <p>Gatineo</p>
-                </figure>
+                            <figure class="img-pergunta">
+                                <img src="img/image 3.png" alt="">
+                                <p>Gatineo</p>
+                            </figure>
 
-                <figure class="img-pergunta">
-                    <img src="img/image 3.png" alt="">
-                    <p>Gatineo</p>
-                </figure>
+                            <figure class="img-pergunta">
+                                <img src="img/image 3.png" alt="">
+                                <p>Gatineo</p>
+                            </figure>
 
-                <figure class="img-pergunta">
-                    <img src="img/image 3.png" alt="">
-                    <p>Gatineo</p>
-                </figure>
-            </li>
-            </ul>
-            <ul class="pergunta">
-                <header class="topo-pergunta">
-                    <p>Em qual animal Olho-Tonto Moody transfigurou Malfoy?</p>
-                </header>
-                <li class="opcoes-resposta">
+                            <figure class="img-pergunta">
+                                <img src="img/image 3.png" alt="">
+                                <p>Gatineo</p>
+                            </figure>
+                        </li>
+                    </ul>
+                    <ul class="pergunta">
+                        <header class="topo-pergunta">
+                            <p>Em qual animal Olho-Tonto Moody transfigurou Malfoy?</p>
+                        </header>
+                        <li class="opcoes-resposta">
 
-                <figure class="img-pergunta">
-                    <img src="img/image 3.png" alt="">
-                    <p>Gatineo</p>
-                </figure>
+                            <figure class="img-pergunta">
+                                <img src="img/image 3.png" alt="">
+                                <p>Gatineo</p>
+                            </figure>
 
-                <figure class="img-pergunta">
-                    <img src="img/image 3.png" alt="">
-                    <p>Gatineo</p>
-                </figure>
+                            <figure class="img-pergunta">
+                                <img src="img/image 3.png" alt="">
+                                <p>Gatineo</p>
+                            </figure>
 
-                <figure class="img-pergunta">
-                    <img src="img/image 3.png" alt="">
-                    <p>Gatineo</p>
-                </figure>
+                            <figure class="img-pergunta">
+                                <img src="img/image 3.png" alt="">
+                                <p>Gatineo</p>
+                            </figure>
 
-                <figure class="img-pergunta">
-                    <img src="img/image 3.png" alt="">
-                    <p>Gatineo</p>
-                </figure>
-            </li>
-            </ul>
+                            <figure class="img-pergunta">
+                                <img src="img/image 3.png" alt="">
+                                <p>Gatineo</p>
+                            </figure>
+                        </li>
+                    </ul>
 
-            </article>
-            <article class="fim-quizz none">
-                <header class="topo-fim-quizz">
-                    <p>88% de acerto: Você é praticamente um aluno de Hogwarts!</p>
-                </header>
-                <div class="meme-final">
-                <img src="img/image 10.png" alt="meme de harry potter">
-                <p class="msg-final">Parabéns Potterhead! Bem-vindx a Hogwarts, aproveite o loop infinito de comida e clique no botão abaixo para usar o vira-tempo e reiniciar este teste.</p>
-            </div>
-            </article>
-        </section>
+                </article>
+                <article class="fim-quizz none">
+                    <header class="topo-fim-quizz">
+                        <p>88% de acerto: Você é praticamente um aluno de Hogwarts!</p>
+                    </header>
+                    <div class="meme-final">
+                        <img src="img/image 10.png" alt="meme de harry potter">
+                        <p class="msg-final">Parabéns Potterhead! Bem-vindx a Hogwarts, aproveite o loop infinito de
+                            comida e clique no botão abaixo para usar o vira-tempo e reiniciar este teste.</p>
+                    </div>
+                </article>
+            </section>
             <footer class="final-pag-quizz none">
-            <button class="reiniciar-quizz">Reiniciar Quizz</button>
-            <p class="voltar-home">Voltar pra home</p>
+                <button class="reiniciar-quizz">Reiniciar Quizz</button>
+                <p class="voltar-home">Voltar pra home</p>
             </footer>
         </section>
         <!-- ---------------------------------------------- -->
+        <!-- tela 3 -->
+        <section class="criacao-quiz none">
+            <div class="primeira-tela-criacao">
+                <div class="criacao titulo">
+                    <p>Comece pelo começo</p>
+                </div>
+                <ul class="comeco">
+                    <li><input type="text" placeholder="Título do seu quizz"></li>
+                    <li><input type="text" placeholder="URL da imagem do seu quizz"></li>   
+                    <li><input type="text" placeholder="Quantidade de perguntas do quizz"></li>
+                    <li><input type="text" placeholder="Quantidade de níveis do quizz"></li>
+                </ul>
+                <button class="botao">Prosseguir pra criar perguntas</button>
+            </div>
+
+            <div class="segunda-tela-criacao"></div>
+            <div class="terceira-tela-criacao"></div>
+
+        </section>
 
     </main>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-    <script src="./js/script.js"></script>     
-    <script src="./js/script2.js"></script>     
+    <script src="./js/script.js"></script>
+    <script src="./js/script2.js"></script>
 </body>
+
 </html>
