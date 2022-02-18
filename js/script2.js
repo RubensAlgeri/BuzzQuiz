@@ -6,6 +6,9 @@ let tituloNiveis=[], acertoMinimos=[], imgNiveis=[], descricaoNiveis=[]
 let niveisCriado = {}
 let novoQuizz
 let questions =[], levels = []
+let objetoRespostas = [];
+let objetoRespostas1 = [];
+
 
 function criarQuizz2() {
     criarTitulo = document.querySelector(".criacao-titulo").value
@@ -108,7 +111,7 @@ for (let i = 1; i <= criarQntPerguntas; i++){
     let incorreta3 = document.querySelector(`.incorreta${i}3`).value
     let imgIncorreta3 = document.querySelector(`.img-incorreta${i}3`).value
 
-    let verificarCor =parseInt(cor.replace("#","0x"))
+    // let verificarCor =parseInt(cor.replace("#","0x"))
     // if ((texto.length >= 20)
     //     && (verificarCor <= 16777215)
     //     && (correta.length >= 3)
@@ -116,29 +119,82 @@ for (let i = 1; i <= criarQntPerguntas; i++){
     //     && (incorreta1.length >= 2)
     //     && ((imgIncorreta1.slice(0, 4) == "www." || imgIncorreta1.slice(0, 4) == "http"))
     // ) 
-    {
+    // {
         // Alterar a ordem, por enquanto estou deixando para teste
+        if(incorreta3 !== ""){
+            objetoRespostas = [{
+                text: correta,
+                image: imagem,
+                isCorrectAnswer: true
+            },
+            {
+                text: incorreta1,
+                image: imgIncorreta1,
+                isCorrectAnswer: false
+            },
+            {
+            text: incorreta2,
+            image: imgIncorreta2,
+            isCorrectAnswer: false
+            },
+            {
+                text: incorreta3,
+                image: imgIncorreta3,
+                isCorrectAnswer: false
+            }]
+        }else if(incorreta2 !== ""){
+            objetoRespostas = [{
+                text: correta,
+                image: imagem,
+                isCorrectAnswer: true
+            },
+            {
+                text: incorreta1,
+                image: imgIncorreta1,
+                isCorrectAnswer: false
+            },
+            {
+            text: incorreta2,
+            image: imgIncorreta2,
+            isCorrectAnswer: false
+            }]
+        }else{
+            objetoRespostas = [{
+                text: correta,
+                image: imagem,
+                isCorrectAnswer: true
+            },
+            {
+                text: incorreta1,
+                image: imgIncorreta1,
+                isCorrectAnswer: false
+            }]
+        }
+
+        objetoRespostas1.push(objetoRespostas)
+
         textos.push(texto)
         cores.push(cor)
-        corretas.push(correta)
-        imagens.push(imagem)
-        incorretas1.push(incorreta1)
-        imgIncorretas1.push(imgIncorreta1)
-        incorretas2.push(incorreta2)
-        imgIncorretas2.push(imgIncorreta2)
-        incorretas3.push(incorreta3)
-        imgIncorretas3.push(imgIncorreta3)
+        // corretas.push(correta)
+        // imagens.push(imagem)
+        // incorretas1.push(incorreta1)
+        // imgIncorretas1.push(imgIncorreta1)
+        // incorretas2.push(incorreta2)
+        // imgIncorretas2.push(imgIncorreta2)
+        // incorretas3.push(incorreta3)
+        // imgIncorretas3.push(imgIncorreta3)
+
 
         quizzCriado.textos = textos
         quizzCriado.cores = cores
-        quizzCriado.corretas = corretas
-        quizzCriado.imagens = imagens
-        quizzCriado.incorretas1 = incorretas1
-        quizzCriado.imgIncorretas1 = imgIncorretas1
-        quizzCriado.incorretas2 = incorretas2
-        quizzCriado.imgIncorretas2 = imgIncorretas2
-        quizzCriado.incorretas3 = incorretas3
-        quizzCriado.imgIncorretas3 = imgIncorretas3
+        // quizzCriado.corretas = corretas
+        // quizzCriado.imagens = imagens
+        // quizzCriado.incorretas1 = incorretas1
+        // quizzCriado.imgIncorretas1 = imgIncorretas1
+        // quizzCriado.incorretas2 = incorretas2
+        // quizzCriado.imgIncorretas2 = imgIncorretas2
+        // quizzCriado.incorretas3 = incorretas3
+        // quizzCriado.imgIncorretas3 = imgIncorretas3
 
              
         // criarPerguntas()
@@ -146,7 +202,7 @@ for (let i = 1; i <= criarQntPerguntas; i++){
     // } else {
     //     alert("Preencha os dados corretamente!")
     //     break
-    }
+    // }
     prosseguir33()
     
     
@@ -226,7 +282,7 @@ function finalizarQuizz(){
         image: criarImg,
         questions: questions,
         levels: levels
-    } 
+    }
 
 
     // {
@@ -249,9 +305,10 @@ function finalizarQuizz(){
     //     ]
     // };
 
-    const promessaQuizz = axios.post("https://mock-api.driven.com.br/api/v4/buzzquizz/quizzes",novoQuizz)
+    let promessaQuizz;
+    promessaQuizz = axios.post("https://mock-api.driven.com.br/api/v4/buzzquizz/quizzes",novoQuizz);
 
-    objeto1.push(novoQuizz)
+    // objeto1.push(novoQuizz)
     
 }
 
@@ -262,28 +319,7 @@ function enviarPerguntas(){
 		{
 			title: textos[i],
 			color: cores[i],
-			answers: [
-				{
-					text: corretas[i],
-					image: imagens[i],
-					isCorrectAnswer: true
-				},
-				{
-					text: incorretas1[i],
-					image: imgIncorretas1[i],
-					isCorrectAnswer: false
-				},
-                {
-					text: incorretas2[i],
-					image: imgIncorretas2[i],
-					isCorrectAnswer: false
-				},
-                {
-					text: incorretas3[i],
-					image: imgIncorretas3[i],
-					isCorrectAnswer: false
-				}
-			]
+			answers: objetoRespostas1[i]
 		})
     }
  }
