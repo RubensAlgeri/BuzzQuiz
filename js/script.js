@@ -50,7 +50,7 @@ function renderizarQuizzes(cardQuizz){
 // -----------------------------------------------------------------
 function acessarQuizz(id){
     idDoQuizz = id;
-    setTimeout(function(){(document.querySelector(`.pergunta:nth-child(1)`).scrollIntoView({block: "center"}))},1000);
+    setTimeout(function(){(document.querySelector(`.pergunta:nth-child(1)`).scrollIntoView({block: "center", behavior: "smooth"}))},1000);
     
     document.querySelector(".home").classList.add("none");
     document.querySelector(".pagina-quizz").classList.remove("none");
@@ -146,7 +146,7 @@ function selecionarResposta(resposta){
     setTimeout(checarFimDoQuizz, 2000);
 }
 function scrollarAutomatico(){
-    document.querySelector(`.pergunta:nth-child(${n})`).scrollIntoView({block: "center"});
+    document.querySelector(`.pergunta:nth-child(${n})`).scrollIntoView({block: "center", behavior: "smooth"});
     n++
 }
 
@@ -170,7 +170,7 @@ function checarFimDoQuizz(){
     }
 });
 }
-document.querySelector(".fim-quizz").scrollIntoView({block:"center"});
+document.querySelector(".fim-quizz").scrollIntoView({block:"center", behavior: "smooth"});
 }
 
 function reiniciarQuizz(){
@@ -213,8 +213,7 @@ function voltar(){
     document.querySelector(".fim-quizz").classList.add("none");
     document.querySelector(".pagina-quizz").classList.add("none");
     document.querySelector(".home").classList.remove("none")
-    document.querySelector("main").scrollIntoView({block: "center"});
-
+    setTimeout(function(){(document.querySelector(".seus-quizzes").scrollIntoView({block: "center", behavior: "smooth"}))},200);
 }
 
 
