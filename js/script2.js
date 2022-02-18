@@ -1,7 +1,7 @@
 // tela3.2
 let criarTitulo, criarImg, criarQntPerguntas, criarQntNiveis
-let textos=[], cores=[], correta1=[], imagem1=[], incorreta1=[], imgIncorreta1=[], incorreta2=[], imgIncorreta2=[], incorreta3=[], imgIncorreta3=[]
-// let re = /[#]{1}[0-9A-Fa-f]{6}/g;
+let textos=[], cores=[], corretas=[], imagens=[], incorretas1=[], imgIncorretas1=[], incorretas2=[], imgIncorretas2=[], incorretas3=[], imgIncorretas3=[]
+let quizzCriado = {}
 
 function criarQuizz2() {
     criarTitulo = document.querySelector(".criacao-titulo").value
@@ -15,6 +15,9 @@ function criarQuizz2() {
         && (criarQntPerguntas >= 3)
         && (criarQntNiveis >= 2)
     ) {
+        quizzCriado.titulo = criarTitulo
+        quizzCriado.imgTitulo = criarImg
+
         console.log("SHOW DE BOLINHAS!!!! o0º%o0º%o0º%o0º%o0º")
         criarPerguntas()
     } else {
@@ -82,8 +85,68 @@ function criarPerguntas() {
     }
     document.querySelector(".segunda-tela-criacao").innerHTML = document.querySelector(".segunda-tela-criacao").innerHTML + 
     `
-    <button class="botao" onclick="prosseguir33()">Prosseguir pra criar perguntas</button>
+    <button class="botao" onclick="validarPerguntas()">Prosseguir pra criar perguntas</button>
     `
+}
+
+
+function validarPerguntas(){
+for (let i = 1; i <= criarQntPerguntas; i++){
+    // criarTitulo = document.querySelector(".criacao-titulo").value
+    let texto = document.querySelector(`.texto${i}`).value
+    let cor = document.querySelector(`.cor${i}`).value
+    let correta = document.querySelector(`.correta${i}`).value
+    let imagem = document.querySelector(`.imagem${i}`).value
+    let incorreta1 = document.querySelector(`.incorreta${i}1`).value
+    let imgIncorreta1 = document.querySelector(`.img-incorreta${i}1`).value
+    let incorreta2 = document.querySelector(`.incorreta${i}2`).value
+    let imgIncorreta2 = document.querySelector(`.img-incorreta${i}2`).value
+    let incorreta3 = document.querySelector(`.incorreta${i}3`).value
+    let imgIncorreta3 = document.querySelector(`.img-incorreta${i}3`).value
+
+    let verificarCor =parseInt(cor.replace("#","0x"))
+    if ((texto.length >= 20)
+        && (verificarCor <= 16777215)
+        && (correta.length >= 3)
+        && ((imagem.slice(0, 4) == "www." || imagem.slice(0, 4) == "http"))
+        && (incorreta1.length >= 2)
+        && ((imgIncorreta1.slice(0, 4) == "www." || imgIncorreta1.slice(0, 4) == "http"))
+    ) {
+        textos.push(texto)
+        cores.push(cor)
+        corretas.push(correta)
+        imagens.push(imagem)
+        incorretas1.push(incorreta1)
+        imgIncorretas1.push(imgIncorreta1)
+        incorretas2.push(incorreta2)
+        imgIncorretas2.push(imgIncorreta2)
+        incorretas3.push(incorreta3)
+        imgIncorretas3.push(imgIncorreta3)
+
+        quizzCriado.textos = textos
+        quizzCriado.cores = cores
+        quizzCriado.corretas = corretas
+        quizzCriado.imagens = imagens
+        quizzCriado.incorretas1 = incorretas1
+        quizzCriado.imgIncorretas1 = imgIncorretas1
+        quizzCriado.incorretas2 = incorretas2
+        quizzCriado.imgIncorretas2 = imgIncorretas2
+        quizzCriado.incorretas3 = incorretas3
+        quizzCriado.imgIncorretas3 = imgIncorretas3
+
+             
+        // criarPerguntas()
+
+    } else {
+        alert("Preencha os dados corretamente!")
+        break
+    }
+    prosseguir33()
+    
+    
+    
+    
+}
 }
 
 // tela 3.3
@@ -114,6 +177,12 @@ function prosseguir33(){
     }
     document.querySelector(".terceira-tela-criacao").innerHTML = document.querySelector(".terceira-tela-criacao").innerHTML +
     `
-    <button class="botao" onclick="finalizarQuizz()">Finalizar Quizz</button>
+    <button class="botao" onclick="validarNivel()">Finalizar Quizz</button>
     `
 }
+
+function validarNivel(){
+    for (let i = 1; i <= criarQntNiveis; i++){
+    
+    
+    }
