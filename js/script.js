@@ -1,5 +1,21 @@
 let cardQuizz, possuiQuizz
 
+let objeto1 = [];
+let tituloQuiz;
+let tituloImg;
+let perguntas = [];
+let corTitulo;
+let tituloPergunta;
+let respostas = [];
+let imgResposta;
+let textoResposta;
+let valorResposta;
+let certaOuErrada;
+let verificar = 0;
+let objeto2 = [];
+let acertos = 0;
+let respostaSelecionada;
+
 function buscarQuizz() {
     displayQuizz()
     setInterval(displayQuizz, 5000);
@@ -29,7 +45,7 @@ function renderizarQuizzes(cardQuizz){
         `
     }
 }
-
+// -----------------------------------------------------------------
 function acessarQuizz(id){
     idDoQuizz = id;
     document.querySelector(".home").classList.add("none");
@@ -37,19 +53,6 @@ function acessarQuizz(id){
     const promise = axios.get(`https://mock-api.driven.com.br/api/v4/buzzquizz/quizzes/${idDoQuizz}`);
     promise.then(obterPerguntas);
 }
-
-
-let objeto1 = [];
-let tituloQuiz;
-let tituloImg;
-let perguntas = [];
-let corTitulo;
-let tituloPergunta;
-let respostas = [];
-let imgResposta;
-let textoResposta;
-let valorResposta;
-let certaOuErrada;
 
 function obterPerguntas(quizz){
     objeto1 = quizz.data;
@@ -62,6 +65,7 @@ function obterPerguntas(quizz){
     renderizarPerguntas();
 }
 function renderizarPerguntas(){
+
         document.querySelector(".nome-quizz").innerHTML =
         `<div class="img-gradient">
         <img src="${tituloImg}" style="width: 100vw; height: 200px;" alt="">
@@ -108,9 +112,9 @@ function renderizarPerguntas(){
 
         });
 }
-let acertos = 0;
-let respostaSelecionada;
+
 function selecionarResposta(resposta){
+    resposta.scrollIntoView({inline: "nearest", block: "start"});
     verificar++;
     respostaSelecionada = resposta;
     respostaSelecionada.classList.add("resposta-selecionada");
@@ -135,11 +139,10 @@ function selecionarResposta(resposta){
         element.style.setProperty("--cor-errada","#FF4B4B");
     })
 
-    checarFimDoQuizz();
+    setTimeout(checarFimDoQuizz, 2000);
 }
 
-let verificar = 0;
-let objeto2 = [];
+
 function checarFimDoQuizz(){
     if(verificar === perguntas.length){
         let minValue = Math.round((acertos / perguntas.length)*100);
@@ -160,9 +163,11 @@ function checarFimDoQuizz(){
     }
 });
 }
+document.querySelector(".fim-quizz").scrollIntoView();
 }
 
 function reiniciarQuizz(){
+    document.querySelector(".nome-quizz").scrollIntoView();
     verificar = 0;
     acertos = 0;
     document.querySelector(".perguntas").innerHTML = '';
@@ -173,6 +178,7 @@ function reiniciarQuizz(){
 function comparador() {
     return Math.random() - 0.5;
 }
+// -----------------------------------------------------------------
 
 function seusQuizzes(){
     if (possuiQuizz){
@@ -190,16 +196,19 @@ function criarQuizz(){
 
 
 function voltar(){
-    
+    verificar = 0;
+    acertos = 0;
+    document.querySelector(".perguntas").innerHTML = '';
     document.querySelector(".pagina-quizz").classList.add("none")
     document.querySelector(".criacao-quiz").classList.add("none")
     document.querySelector(".fim-quizz").classList.add("none");
     document.querySelector(".pagina-quizz").classList.add("none");
     document.querySelector(".home").classList.remove("none")
-    
+    document.querySelector(".seus-quizzes").scrollIntoView({block: "end"});
+
 }
 
 
 
 
-// buscarQuizz()
+buscarQuizz()
