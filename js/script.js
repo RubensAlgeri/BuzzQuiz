@@ -16,6 +16,7 @@ let objeto2 = [];
 let acertos = 0;
 let respostaSelecionada;
 let minValue = 0;
+let n = 2;
 
 function buscarQuizz() {
     displayQuizz()
@@ -143,7 +144,8 @@ function selecionarResposta(resposta){
     setTimeout(checarFimDoQuizz, 2000);
 }
 function scrollarAutomatico(){
-    respostaSelecionada.scrollIntoView({inline: "nearest", block: "start"});
+    document.querySelector(`.pergunta:nth-child(${n})`).scrollIntoView({block: "center"});
+    n++
 }
 
 function checarFimDoQuizz(){
@@ -171,6 +173,7 @@ document.querySelector(".fim-quizz").scrollIntoView();
 
 function reiniciarQuizz(){
     document.querySelector(".nome-quizz").scrollIntoView();
+    n =2;
     verificar = 0;
     acertos = 0;
     document.querySelector(".perguntas").innerHTML = '';
@@ -201,13 +204,14 @@ function criarQuizz(){
 function voltar(){
     verificar = 0;
     acertos = 0;
+    n=2;
     document.querySelector(".perguntas").innerHTML = '';
     document.querySelector(".pagina-quizz").classList.add("none")
     document.querySelector(".criacao-quiz").classList.add("none")
     document.querySelector(".fim-quizz").classList.add("none");
     document.querySelector(".pagina-quizz").classList.add("none");
     document.querySelector(".home").classList.remove("none")
-    document.querySelector(".seus-quizzes").scrollIntoView({block: "end"});
+    document.querySelector("main").scrollIntoView({inline: "center"});
 
 }
 

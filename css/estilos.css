@@ -264,6 +264,7 @@ body{
         display: flex;
         justify-content: center;
         flex-wrap: wrap;
+        margin: 0 50px;
     }
     .pergunta{
         width: 759px;
