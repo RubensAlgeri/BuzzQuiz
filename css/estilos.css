@@ -330,7 +330,7 @@ body{
     align-items: center; 
 }
 
-.pergunta{
+ .pergunta1{ /*MUDEI O NOME PQ JA TINHA CRIADO UMA CLASSE PERGUNTA */
     width: 341px;
     margin-top: 12px;
     margin-bottom: 12px;
