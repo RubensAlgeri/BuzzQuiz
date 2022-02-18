@@ -225,20 +225,7 @@ function finalizarQuizz(){
         title: criarTitulo,
         image: criarImg,
         questions: questions,
-        levels: [
-            {
-                title: "Título do nível 1",
-                image: "https://http.cat/411.jpg",
-                text: "Descrição do nível 1",
-                minValue: 0
-            },
-            {
-                title: "Título do nível 2",
-                image: "https://http.cat/412.jpg",
-                text: "Descrição do nível 2",
-                minValue: 50
-            }
-        ]
+        levels: levels
     } 
 
 
@@ -304,6 +291,13 @@ function enviarPerguntas(){
  function enviarNiveis(){
     for (let i = 0; i <= criarQntNiveis-1; i++){
         console.log(i)
-        levels.push()
+        levels.push(
+            {
+                title: tituloNiveis[i],
+                image: imgNiveis[i],
+                text: descricaoNiveis[i],
+                minValue: acertoMinimos[i]
+            }
+        )
     }
 }
