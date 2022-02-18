@@ -15,6 +15,7 @@ let verificar = 0;
 let objeto2 = [];
 let acertos = 0;
 let respostaSelecionada;
+let minValue = 0;
 
 function buscarQuizz() {
     displayQuizz()
@@ -114,8 +115,8 @@ function renderizarPerguntas(){
 }
 
 function selecionarResposta(resposta){
-    resposta.scrollIntoView({inline: "nearest", block: "start"});
     verificar++;
+    setTimeout(scrollarAutomatico, 2000);
     respostaSelecionada = resposta;
     respostaSelecionada.classList.add("resposta-selecionada");
 
@@ -141,14 +142,16 @@ function selecionarResposta(resposta){
 
     setTimeout(checarFimDoQuizz, 2000);
 }
-
+function scrollarAutomatico(){
+    respostaSelecionada.scrollIntoView({inline: "nearest", block: "start"});
+}
 
 function checarFimDoQuizz(){
     if(verificar === perguntas.length){
-        let minValue = Math.round((acertos / perguntas.length)*100);
+        minValue = Math.round((acertos / perguntas.length)*100);
         
         objeto2.forEach(element=>{
-        if(element.minValue>=minValue){
+        if(minValue>=element.minValue){
 
         document.querySelector(".fim-quizz").classList.remove("none");
 
