@@ -107,7 +107,7 @@ body{
 .card-quizz>img{
     height: 181px;
     width: 340px;
-    /* border-radius: 5px; */
+    border-radius: 10px;
 }
 .layer{
     position:absolute;
@@ -313,8 +313,8 @@ body{
     align-items: center;
 }
 
-.primeira-tela-{
-}
+/* .primeira-tela-{
+} */
 
 .caixa{
     max-width: 100vw;
@@ -369,6 +369,21 @@ input::placeholder {
     color: #bababa;
   }
 
+textarea{
+    height: 100px;
+    width: 90vw;
+    border: 1px solid #D1D1D1;
+    border-radius: 5px;
+    font-size: 19px;
+    font-weight: 400;
+    font-style: italic;
+    font-family: 'Roboto', sans-serif;
+    margin: 7px 12px;
+}
+
+textarea::placeholder {
+    color: #bababa;
+  }
 
 .botao{
     height: 54px;
@@ -378,12 +393,25 @@ input::placeholder {
     font-size: 18px;
     text-align: center;
     border-radius: 15px;
-    margin: 29px auto;
+    margin: 29px auto 5px;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
+.botao-voltar{
+    height: 54px;
+    width: 324px;
+    
+    color:#818181;
+    font-size: 18px;
+    text-align: center;
+    border-radius: 15px;
+    margin: 0px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
 
 
@@ -405,6 +433,6 @@ input::placeholder {
 .resposta-errada{
     color: var(--cor-errada);
 }
-.resposta-selecionada{
+/* .resposta-selecionada{
 
-}
+} */

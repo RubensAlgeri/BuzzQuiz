@@ -104,7 +104,7 @@
                     <li><input class="criacao-qnt-perguntas" type="text" placeholder="Quantidade de perguntas do quizz"></li>
                     <li><input class="criacao-qnt-niveis" type="text" placeholder="Quantidade de níveis do quizz"></li>
                 </ul>
-                <button class="botao" onclick="criarQuizz()">Prosseguir pra criar perguntas</button>
+                <button class="botao" onclick="criarQuizz2()">Prosseguir pra criar perguntas</button>
             </div>
 
             <div class="segunda-tela-criacao none">
@@ -112,38 +112,70 @@
                     <p>Crie suas perguntas</p>
                 </div>
                 <ul class="caixa">
-                    <div class="pergunta ">Pergunta 1</div>
-                    <li><input type="text" placeholder="Texto da pergunta"></li>
-                    <li><input type="text" placeholder="Cor de fundo da pergunta"></li> 
+                    <div class="pergunta pergunta1">Pergunta 1</div>
+                    <li><input class="texto1" type="text" placeholder="Texto da pergunta"></li>
+                    <li><input class="cor1" type="text" placeholder="Cor de fundo da pergunta"></li> 
                 
                     <div class="pergunta ">Resposta correta</div> 
-                    <li><input type="text" placeholder="Resposta correta"></li>
-                    <li><input type="text" placeholder="URL da imagem"></li>
+                    <li><input class="correta1" type="text" placeholder="Resposta correta"></li>
+                    <li><input class="imagem1" type="text" placeholder="URL da imagem"></li>
                 
-                    <div class="pergunta ">Respostas incorretas</div>
-                    <li><input type="text" placeholder="Resposta incorreta 1"></li>
-                    <li><input type="text" placeholder="URL da imagem 1"></li> 
+                    <div class="pergunta">Respostas incorretas</div>
+                    <li><input class="incorreta11" type="text" placeholder="Resposta incorreta 1"></li>
+                    <li><input class="img-incorreta11" type="text" placeholder="URL da imagem 1"></li> 
                 
-                    <div class="pergunta "></div> 
-                    <li><input type="text" placeholder="Resposta incorreta 2"></li>
-                    <li><input type="text" placeholder="URL da imagem 2"></li>
+                    <div class="pergunta"></div> 
+                    <li><input class="incorreta12"  type="text" placeholder="Resposta incorreta 2"></li>
+                    <li><input class="img-incorreta12"  type="text" placeholder="URL da imagem 2"></li>
                  
-                    <div class="pergunta "></div> 
-                    <li><input type="text" placeholder="Resposta incorreta 3"></li>
-                    <li><input type="text" placeholder="URL da imagem 3"></li>
+                    <div class="pergunta"></div> 
+                    <li><input class="incorreta13" type="text" placeholder="Resposta incorreta 3"></li>
+                    <li><input class="img-incorreta13" type="text" placeholder="URL da imagem 3"></li>
+                </ul>
+
+                <!-- <ul class="caixa">
+
+                </ul> -->
+                <button class="botao" onclick="prosseguir33()">Prosseguir pra criar perguntas</button>
+                
+            </div>
+            
+
+            
+
+
+            <div class="terceira-tela-criacao none">
+                <div class="criacao titulo">
+                    <p>Agora, decida os níveis!</p>
+                </div>
+                <ul class="caixa">
+                    <div class="pergunta ">Nível 1</div>
+                    <li><input type="text" placeholder="Título do nível"></li>
+                    <li><input type="text" placeholder="% de acerto mínima"></li>
+                    <li><input type="text" placeholder="URL da imagem do nível"></li>
+                    <li><textarea  placeholder="Descrição do nível" class="criar-descricao" cols="35" rows="5"></textarea></li>
                 </ul>
 
                 <!-- <ul class="caixa">
 
                 </ul> -->
 
-                <button class="botao">Prosseguir pra criar perguntas</button>
+                <button class="botao" onclick="finalizarQuizz()">Finalizar Quizz</button>
             </div>
 
+            <div class="final-tela-criacao none">
+                <div class="criacao titulo">
+                    <p>Seu quizz está pronto!</p>
+                </div>
+                <div class="container card-quizz" onclick="acessarQuizz()">
+                    <div class="layer"></div>
+                    <img src="" alt="">
+                    <span></span>
+                </div>
+
+                <button class="botao" onclick="">Acessar Quizz</button>
+                <button class="botao-voltar" onclick="voltar()">Voltar pra home</button>
             </div>
-
-
-            <div class="terceira-tela-criacao"></div>
 
         </section>
 
