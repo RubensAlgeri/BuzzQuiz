@@ -2,6 +2,10 @@
 let criarTitulo, criarImg, criarQntPerguntas, criarQntNiveis
 let textos=[], cores=[], corretas=[], imagens=[], incorretas1=[], imgIncorretas1=[], incorretas2=[], imgIncorretas2=[], incorretas3=[], imgIncorretas3=[]
 let quizzCriado = {}
+let tituloNiveis=[], acertoMinimos=[], imgNiveis=[], descricaoNiveis=[]
+let niveisCriado = {}
+let novoQuizz
+let questions =[], levels = []
 
 function criarQuizz2() {
     criarTitulo = document.querySelector(".criacao-titulo").value
@@ -10,19 +14,20 @@ function criarQuizz2() {
     criarQntNiveis = document.querySelector(".criacao-qnt-niveis").value
 
 
-    if ((criarTitulo.length >= 20 && criarTitulo.length <= 65)
-        && (criarImg.slice(0, 4) == "www." || criarImg.slice(0, 4) == "http")
-        && (criarQntPerguntas >= 3)
-        && (criarQntNiveis >= 2)
-    ) {
+    // if ((criarTitulo.length >= 20 && criarTitulo.length <= 65)
+    //     && (criarImg.slice(0, 4) == "www." || criarImg.slice(0, 4) == "http")
+    //     && (criarQntPerguntas >= 3)
+    //     && (criarQntNiveis >= 2)
+    // ) 
+    // {
         quizzCriado.titulo = criarTitulo
         quizzCriado.imgTitulo = criarImg
 
         console.log("SHOW DE BOLINHAS!!!! o0º%o0º%o0º%o0º%o0º")
         criarPerguntas()
-    } else {
-        alert("Preencha os dados corretamente!")
-    }
+    // } else {
+    //     alert("Preencha os dados corretamente!")
+    // }
 
 
 }
@@ -92,7 +97,6 @@ function criarPerguntas() {
 
 function validarPerguntas(){
 for (let i = 1; i <= criarQntPerguntas; i++){
-    // criarTitulo = document.querySelector(".criacao-titulo").value
     let texto = document.querySelector(`.texto${i}`).value
     let cor = document.querySelector(`.cor${i}`).value
     let correta = document.querySelector(`.correta${i}`).value
@@ -105,13 +109,15 @@ for (let i = 1; i <= criarQntPerguntas; i++){
     let imgIncorreta3 = document.querySelector(`.img-incorreta${i}3`).value
 
     let verificarCor =parseInt(cor.replace("#","0x"))
-    if ((texto.length >= 20)
-        && (verificarCor <= 16777215)
-        && (correta.length >= 3)
-        && ((imagem.slice(0, 4) == "www." || imagem.slice(0, 4) == "http"))
-        && (incorreta1.length >= 2)
-        && ((imgIncorreta1.slice(0, 4) == "www." || imgIncorreta1.slice(0, 4) == "http"))
-    ) {
+    // if ((texto.length >= 20)
+    //     && (verificarCor <= 16777215)
+    //     && (correta.length >= 3)
+    //     && ((imagem.slice(0, 4) == "www." || imagem.slice(0, 4) == "http"))
+    //     && (incorreta1.length >= 2)
+    //     && ((imgIncorreta1.slice(0, 4) == "www." || imgIncorreta1.slice(0, 4) == "http"))
+    // ) 
+    {
+        // Alterar a ordem, por enquanto estou deixando para teste
         textos.push(texto)
         cores.push(cor)
         corretas.push(correta)
@@ -137,9 +143,9 @@ for (let i = 1; i <= criarQntPerguntas; i++){
              
         // criarPerguntas()
 
-    } else {
-        alert("Preencha os dados corretamente!")
-        break
+    // } else {
+    //     alert("Preencha os dados corretamente!")
+    //     break
     }
     prosseguir33()
     
@@ -157,10 +163,10 @@ function prosseguir33(){
     document.querySelector(".terceira-tela-criacao").innerHTML = `
     <ul class="caixa">
         <div class="pergunta ">Nível 1</div>
-        <li><input type="text" placeholder="Título do nível"></li>
-        <li><input type="text" placeholder="% de acerto mínima"></li>
-        <li><input type="text" placeholder="URL da imagem do nível"></li>
-        <li><textarea  placeholder="Descrição do nível" class="criar-descricao" cols="35" rows="5"></textarea></li>
+        <li><input class="titulo-nivel1" type="text" placeholder="Título do nível"></li>
+        <li><input class="acerto-minimo1" type="text" placeholder="% de acerto mínima"></li>
+        <li><input class="img-nivel1" type="text" placeholder="URL da imagem do nível"></li>
+        <li><textarea class="descricao-nivel1"  placeholder="Descrição do nível" class="criar-descricao" cols="35" rows="5"></textarea></li>
     </ul>
     `
     for (let i = 0; i < (criarQntNiveis - 1); i++) {
@@ -168,10 +174,10 @@ function prosseguir33(){
         `
     <ul class="caixa">
         <div class="pergunta ">Nível ${i+2}</div>
-        <li><input type="text" placeholder="Título do nível"></li>
-        <li><input type="text" placeholder="% de acerto mínima"></li>
-        <li><input type="text" placeholder="URL da imagem do nível"></li>
-        <li><textarea  placeholder="Descrição do nível" class="criar-descricao" cols="35" rows="5"></textarea></li>
+        <li><input class="titulo-nivel${i+2}" type="text" placeholder="Título do nível"></li>
+        <li><input class="acerto-minimo${i+2}" type="text" placeholder="% de acerto mínima"></li>
+        <li><input class="img-nivel${i+2}" type="text" placeholder="URL da imagem do nível"></li>
+        <li><textarea class="descricao-nivel${i+2}"  placeholder="Descrição do nível" class="criar-descricao" cols="35" rows="5"></textarea></li>
     </ul>
     `
     }
@@ -183,6 +189,121 @@ function prosseguir33(){
 
 function validarNivel(){
     for (let i = 1; i <= criarQntNiveis; i++){
+        let tituloNivel = document.querySelector(`.titulo-nivel${i}`).value
+        let acertoMinimo = document.querySelector(`.acerto-minimo${i}`).value
+        let imgNivel = document.querySelector(`.img-nivel${i}`).value
+        let descricaoNivel = document.querySelector(`.descricao-nivel${i}`).value
     
+        // if ((tituloNivel.length >= 10)
+        // && (acertoMinimo <= 100 && acertoMinimo >= 0)
+        // && (descricaoNivel.length >= 30)
+        // && (imgNivel.slice(0, 4) == "www." || imgNivel.slice(0, 4) == "http")
+        // ) {
+            tituloNiveis.push(tituloNivel)
+            acertoMinimos.push(acertoMinimo)
+            imgNiveis.push(imgNivel)
+            descricaoNiveis.push(descricaoNivel)
+
+    // } else{
+    //     alert("Preencha os NIVEIS corretamente!")
+    //     break
+    // }
+}
+    niveisCriado.tituloNiveis = tituloNiveis
+    niveisCriado.acertoMinimos = acertoMinimos
+    niveisCriado.imgNiveis = imgNiveis
+    niveisCriado.descricaoNiveis = descricaoNiveis
+
+    finalizarQuizz()
+}
+
+function finalizarQuizz(){
+    enviarPerguntas()
+    enviarNiveis()
+
+    novoQuizz ={
+        title: criarTitulo,
+        image: criarImg,
+        questions: questions,
+        levels: [
+            {
+                title: "Título do nível 1",
+                image: "https://http.cat/411.jpg",
+                text: "Descrição do nível 1",
+                minValue: 0
+            },
+            {
+                title: "Título do nível 2",
+                image: "https://http.cat/412.jpg",
+                text: "Descrição do nível 2",
+                minValue: 50
+            }
+        ]
+    } 
+
+
+    // {
+    //     title: quizzCriado.titulo,
+    //     image: quizzCriado.imgTitulo,
+    //     questions: questions,
+    //     levels: [
+    //         {
+    //             title: "Título do nível 1",
+    //             image: "https://http.cat/411.jpg",
+    //             text: "Descrição do nível 1",
+    //             minValue: 0
+    //         },
+    //         {
+    //             title: "Título do nível 2",
+    //             image: "https://http.cat/412.jpg",
+    //             text: "Descrição do nível 2",
+    //             minValue: 50
+    //         }
+    //     ]
+    // };
+
+    const promessaQuizz = axios.post("https://mock-api.driven.com.br/api/v4/buzzquizz/quizzes",novoQuizz)
+
+    objeto1.push(novoQuizz)
     
+}
+
+function enviarPerguntas(){
+    for (let i = 0; i <= criarQntPerguntas-1; i++){
+        console.log(i)
+    questions.push(
+		{
+			title: textos[i],
+			color: cores[i],
+			answers: [
+				{
+					text: corretas[i],
+					image: imagens[i],
+					isCorrectAnswer: true
+				},
+				{
+					text: incorretas1[i],
+					image: imgIncorretas1[i],
+					isCorrectAnswer: false
+				},
+                {
+					text: incorretas2[i],
+					image: imgIncorretas2[i],
+					isCorrectAnswer: false
+				},
+                {
+					text: incorretas3[i],
+					image: imgIncorretas3[i],
+					isCorrectAnswer: false
+				}
+			]
+		})
     }
+ }
+
+ function enviarNiveis(){
+    for (let i = 0; i <= criarQntNiveis-1; i++){
+        console.log(i)
+        levels.push()
+    }
+}
