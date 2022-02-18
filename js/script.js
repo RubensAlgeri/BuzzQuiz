@@ -50,6 +50,8 @@ function renderizarQuizzes(cardQuizz){
 // -----------------------------------------------------------------
 function acessarQuizz(id){
     idDoQuizz = id;
+    setTimeout(function(){(document.querySelector(`.pergunta:nth-child(1)`).scrollIntoView({block: "center"}))},1000);
+    
     document.querySelector(".home").classList.add("none");
     document.querySelector(".pagina-quizz").classList.remove("none");
     const promise = axios.get(`https://mock-api.driven.com.br/api/v4/buzzquizz/quizzes/${idDoQuizz}`);
@@ -168,7 +170,7 @@ function checarFimDoQuizz(){
     }
 });
 }
-document.querySelector(".fim-quizz").scrollIntoView();
+document.querySelector(".fim-quizz").scrollIntoView({block:"center"});
 }
 
 function reiniciarQuizz(){
@@ -211,7 +213,7 @@ function voltar(){
     document.querySelector(".fim-quizz").classList.add("none");
     document.querySelector(".pagina-quizz").classList.add("none");
     document.querySelector(".home").classList.remove("none")
-    document.querySelector("main").scrollIntoView({inline: "center"});
+    document.querySelector("main").scrollIntoView({block: "center"});
 
 }
 
