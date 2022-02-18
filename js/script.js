@@ -84,7 +84,7 @@ function renderizarPerguntas(){
             document.querySelector(".perguntas").innerHTML +=
             `<ul class="pergunta">
             <header class="topo-pergunta">
-            <p>${tituloPergunta}</p>
+            <p data-identifier="question">${tituloPergunta}</p>
             </header>
             <li class="opcoes-resposta">
 
@@ -107,7 +107,7 @@ function renderizarPerguntas(){
 
                 document.querySelector("ul:last-child li").innerHTML +=
                 `
-                <figure onclick="selecionarResposta(this)" class="img-pergunta">
+                <figure data-identifier="answer" onclick="selecionarResposta(this)" class="img-pergunta">
                 <img src="${imgResposta}" alt="${textoResposta}">
                 <p class="${certaOuErrada}"> ${textoResposta}</p>
                 </figure>
