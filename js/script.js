@@ -16,6 +16,7 @@ let objeto2 = [];
 let acertos = 0;
 let respostaSelecionada;
 let minValue = 0;
+let n = 2;
 
 function buscarQuizz() {
     displayQuizz()
@@ -49,6 +50,8 @@ function renderizarQuizzes(cardQuizz){
 // -----------------------------------------------------------------
 function acessarQuizz(id){
     idDoQuizz = id;
+    setTimeout(function(){(document.querySelector(`.pergunta:nth-child(1)`).scrollIntoView({block: "center", behavior: "smooth"}))},1000);
+    
     document.querySelector(".home").classList.add("none");
     document.querySelector(".pagina-quizz").classList.remove("none");
     const promise = axios.get(`https://mock-api.driven.com.br/api/v4/buzzquizz/quizzes/${idDoQuizz}`);
@@ -143,7 +146,8 @@ function selecionarResposta(resposta){
     setTimeout(checarFimDoQuizz, 2000);
 }
 function scrollarAutomatico(){
-    respostaSelecionada.scrollIntoView({inline: "nearest", block: "start"});
+    document.querySelector(`.pergunta:nth-child(${n})`).scrollIntoView({block: "center", behavior: "smooth"});
+    n++
 }
 
 function checarFimDoQuizz(){
@@ -166,11 +170,12 @@ function checarFimDoQuizz(){
     }
 });
 }
-document.querySelector(".fim-quizz").scrollIntoView();
+document.querySelector(".fim-quizz").scrollIntoView({block:"center", behavior: "smooth"});
 }
 
 function reiniciarQuizz(){
     document.querySelector(".nome-quizz").scrollIntoView();
+    n =2;
     verificar = 0;
     acertos = 0;
     document.querySelector(".perguntas").innerHTML = '';
@@ -201,14 +206,14 @@ function criarQuizz(){
 function voltar(){
     verificar = 0;
     acertos = 0;
+    n=2;
     document.querySelector(".perguntas").innerHTML = '';
     document.querySelector(".pagina-quizz").classList.add("none")
     document.querySelector(".criacao-quiz").classList.add("none")
     document.querySelector(".fim-quizz").classList.add("none");
     document.querySelector(".pagina-quizz").classList.add("none");
     document.querySelector(".home").classList.remove("none")
-    document.querySelector(".seus-quizzes").scrollIntoView({block: "end"});
-
+    setTimeout(function(){(document.querySelector(".seus-quizzes").scrollIntoView({block: "center", behavior: "smooth"}))},200);
 }
 
 
