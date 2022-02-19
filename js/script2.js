@@ -197,41 +197,7 @@ for (let i = 1; i <= criarQntPerguntas; i++){
         }else{
             alert(`A pergunta ${i} precisa ter pelo menos 20 caracteres!`)
         }
-    
 
-
-
-        // corretas.push(correta)
-        // imagens.push(imagem)
-        // incorretas1.push(incorreta1)
-        // imgIncorretas1.push(imgIncorreta1)
-        // incorretas2.push(incorreta2)
-        // imgIncorretas2.push(imgIncorreta2)
-        // incorretas3.push(incorreta3)
-        // imgIncorretas3.push(imgIncorreta3)
-
-
-
-        // quizzCriado.corretas = corretas
-        // quizzCriado.imagens = imagens
-        // quizzCriado.incorretas1 = incorretas1
-        // quizzCriado.imgIncorretas1 = imgIncorretas1
-        // quizzCriado.incorretas2 = incorretas2
-        // quizzCriado.imgIncorretas2 = imgIncorretas2
-        // quizzCriado.incorretas3 = incorretas3
-        // quizzCriado.imgIncorretas3 = imgIncorretas3
-
-
-        // criarPerguntas()
-
-    // } else {
-    //     alert("Preencha os dados corretamente!")
-    //     break
-    // }
-    
-    
-    
-    
 }
 
 }
@@ -279,11 +245,6 @@ function validarNivel(){
             valorMin = 1;
         }
     
-        // if ((tituloNivel.length >= 10)
-        // && (acertoMinimo <= 100 && acertoMinimo >= 0)
-        // && (descricaoNivel.length >= 30)
-        // && (imgNivel.slice(0, 4) == "www." || imgNivel.slice(0, 4) == "http")
-        // ) {
             if (tituloNivel.length >= 10){
                 if(acertoMinimo <= 100 && acertoMinimo >= 0){
                     if(descricaoNivel.length >= 30){
@@ -316,10 +277,6 @@ function validarNivel(){
                 alert(`O título do nivel ${i} precisa ter pelo menos 10 caracteres!`)
             }
 
-    // } else{
-    //     alert("Preencha os NIVEIS corretamente!")
-    //     break
-    // }
 }
 
 }
@@ -337,25 +294,7 @@ function finalizarQuizz(){
     }
 
 
-    // {
-    //     title: quizzCriado.titulo,
-    //     image: quizzCriado.imgTitulo,
-    //     questions: questions,
-    //     levels: [
-    //         {
-    //             title: "Título do nível 1",
-    //             image: "https://http.cat/411.jpg",
-    //             text: "Descrição do nível 1",
-    //             minValue: 0
-    //         },
-    //         {
-    //             title: "Título do nível 2",
-    //             image: "https://http.cat/412.jpg",
-    //             text: "Descrição do nível 2",
-    //             minValue: 50
-    //         }
-    //     ]
-    // };
+
 
     let promessaQuizz;
     promessaQuizz = axios.post("https://mock-api.driven.com.br/api/v4/buzzquizz/quizzes",novoQuizz);
@@ -374,9 +313,9 @@ function enviarPerguntas(){
 			answers: objetoRespostas1[i]
 		})
     }
- }
+}
 
- function enviarNiveis(){
+function enviarNiveis(){
     for (let i = 0; i <= criarQntNiveis-1; i++){
         console.log(i)
         levels.push(

@@ -29,7 +29,6 @@ function buscarQuizz() {
 
 function promessaCumprida(resposta) {
     quantidadeDeCards = resposta.data.length;
-    // console.log("quantidade de cards"+quantidadeDeCards);
     cardQuizz = resposta.data;
     renderizarQuizzes(cardQuizz);
     }
@@ -218,26 +217,4 @@ function voltar(){
 
 
 
-
 buscarQuizz()
-
-// {
-//     text: corretas[i],
-//     image: imagens[i],
-//     isCorrectAnswer: true
-// },
-// {
-//     text: incorretas1[i],
-//     image: imgIncorretas1[i],
-//     isCorrectAnswer: false
-// },
-// {
-//     text: incorretas2[i],
-//     image: imgIncorretas2[i],
-//     isCorrectAnswer: false
-// },
-// {
-//     text: incorretas3[i],
-//     image: imgIncorretas3[i],
-//     isCorrectAnswer: false
-// }
