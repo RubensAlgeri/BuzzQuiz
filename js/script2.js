@@ -8,6 +8,7 @@ let novoQuizz
 let questions =[], levels = []
 let objetoRespostas = [];
 let objetoRespostas1 = [];
+let valorMin = 0;
 
 
 function criarQuizz2() {
@@ -273,31 +274,58 @@ function validarNivel(){
         let acertoMinimo = document.querySelector(`.acerto-minimo${i}`).value
         let imgNivel = document.querySelector(`.img-nivel${i}`).value
         let descricaoNivel = document.querySelector(`.descricao-nivel${i}`).value
+        
+        if(acertoMinimo === '0'){
+            valorMin = 1;
+        }
     
         // if ((tituloNivel.length >= 10)
         // && (acertoMinimo <= 100 && acertoMinimo >= 0)
         // && (descricaoNivel.length >= 30)
         // && (imgNivel.slice(0, 4) == "www." || imgNivel.slice(0, 4) == "http")
         // ) {
-            tituloNiveis.push(tituloNivel)
-            acertoMinimos.push(acertoMinimo)
-            imgNiveis.push(imgNivel)
-            descricaoNiveis.push(descricaoNivel)
+            if (tituloNivel.length >= 10){
+                if(acertoMinimo <= 100 && acertoMinimo >= 0){
+                    if(descricaoNivel.length >= 30){
+                        if(imgNivel.slice(0, 4) == "www." || imgNivel.slice(0, 4) == "http"){
+                            if(valorMin === 1){
+                                tituloNiveis.push(tituloNivel)
+                                acertoMinimos.push(acertoMinimo)
+                                imgNiveis.push(imgNivel)
+                                descricaoNiveis.push(descricaoNivel)
+
+                                niveisCriado.tituloNiveis = tituloNiveis
+                                niveisCriado.acertoMinimos = acertoMinimos
+                                niveisCriado.imgNiveis = imgNiveis
+                                niveisCriado.descricaoNiveis = descricaoNiveis
+                            
+                                finalizarQuizz()
+                            }else{
+                                alert(`O quiz precisa ter pelo menos 1 nivel com acerto mínimo igual a 0`)
+                            }
+                        }else{
+                            alert(`A imagem do nivel ${i} precisa estar num link válido!`)
+                        }
+                    }else{
+                        alert(`A descrição do nivel ${i} precisa ter no mínimo 30 caracteres!`)
+                    }
+                }else{
+                    alert(`O valor do acerto mínimo do nivel ${i} precisa ser um número entre 0-100!`)
+                }
+            }else{
+                alert(`O título do nivel ${i} precisa ter pelo menos 10 caracteres!`)
+            }
 
     // } else{
     //     alert("Preencha os NIVEIS corretamente!")
     //     break
     // }
 }
-    niveisCriado.tituloNiveis = tituloNiveis
-    niveisCriado.acertoMinimos = acertoMinimos
-    niveisCriado.imgNiveis = imgNiveis
-    niveisCriado.descricaoNiveis = descricaoNiveis
 
-    finalizarQuizz()
 }
 
 function finalizarQuizz(){
+    valorMin = 0;
     enviarPerguntas()
     enviarNiveis()
 
