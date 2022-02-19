@@ -17,21 +17,27 @@ function criarQuizz2() {
     criarQntNiveis = document.querySelector(".criacao-qnt-niveis").value
 
 
-    // if ((criarTitulo.length >= 20 && criarTitulo.length <= 65)
-    //     && (criarImg.slice(0, 4) == "www." || criarImg.slice(0, 4) == "http")
-    //     && (criarQntPerguntas >= 3)
-    //     && (criarQntNiveis >= 2)
-    // ) 
-    // {
-        quizzCriado.titulo = criarTitulo
-        quizzCriado.imgTitulo = criarImg
-
-        console.log("SHOW DE BOLINHAS!!!! o0º%o0º%o0º%o0º%o0º")
-        criarPerguntas()
-    // } else {
-    //     alert("Preencha os dados corretamente!")
-    // }
-
+    if(criarTitulo.length >= 20 && criarTitulo.length <= 65){
+        if(criarImg.slice(0, 4) == "www." || criarImg.slice(0, 4) == "http"){
+            if(criarQntPerguntas >= 3){
+                if(criarQntNiveis >= 2){
+                    quizzCriado.titulo = criarTitulo
+                    quizzCriado.imgTitulo = criarImg
+            
+                    console.log("SHOW DE BOLINHAS!!!! o0º%o0º%o0º%o0º%o0º")
+                    criarPerguntas()
+                }else{
+                    alert("O quizz precisa ter pelo menos 2 niveis!")
+                }
+            }else{
+                alert("O quizz precisa ter pelo menos 3 perguntas!")
+            }
+        }else{
+            alert("Insira um link de imagem válido!")
+        }
+    }else{
+        alert("O título do quizz precisa ter entre 20 e 65 caracteres!")
+    }
 
 }
 
@@ -58,7 +64,7 @@ function criarPerguntas() {
                     <div class="pergunta"></div> 
                     <li><input class="incorreta12"  type="text" placeholder="Resposta incorreta 2"></li>
                     <li><input class="img-incorreta12"  type="text" placeholder="URL da imagem 2"></li>
-                 
+                
                     <div class="pergunta"></div> 
                     <li><input class="incorreta13" type="text" placeholder="Resposta incorreta 3"></li>
                     <li><input class="img-incorreta13" type="text" placeholder="URL da imagem 3"></li>
@@ -84,7 +90,7 @@ function criarPerguntas() {
                     <div class="pergunta"></div> 
                     <li><input class="incorreta${i + 2}2" type="text" placeholder="Resposta incorreta 2"></li>
                     <li><input class="img-incorreta${i + 2}2" type="text" placeholder="URL da imagem 2"></li>
-                 
+                
                     <div class="pergunta"></div> 
                     <li><input class="incorreta${i + 2}3" type="text" placeholder="Resposta incorreta 3"></li>
                     <li><input class="img-incorreta${i + 2}3" type="text" placeholder="URL da imagem 3"></li>
@@ -111,70 +117,89 @@ for (let i = 1; i <= criarQntPerguntas; i++){
     let incorreta3 = document.querySelector(`.incorreta${i}3`).value
     let imgIncorreta3 = document.querySelector(`.img-incorreta${i}3`).value
 
-    // let verificarCor =parseInt(cor.replace("#","0x"))
-    // if ((texto.length >= 20)
-    //     && (verificarCor <= 16777215)
-    //     && (correta.length >= 3)
-    //     && ((imagem.slice(0, 4) == "www." || imagem.slice(0, 4) == "http"))
-    //     && (incorreta1.length >= 2)
-    //     && ((imgIncorreta1.slice(0, 4) == "www." || imgIncorreta1.slice(0, 4) == "http"))
-    // ) 
-    // {
+    let verificarCor = parseInt(cor.replace("#","0x"))
+
         // Alterar a ordem, por enquanto estou deixando para teste
-        if(incorreta3 !== ""){
-            objetoRespostas = [{
-                text: correta,
-                image: imagem,
-                isCorrectAnswer: true
-            },
-            {
-                text: incorreta1,
-                image: imgIncorreta1,
-                isCorrectAnswer: false
-            },
-            {
-            text: incorreta2,
-            image: imgIncorreta2,
-            isCorrectAnswer: false
-            },
-            {
-                text: incorreta3,
-                image: imgIncorreta3,
-                isCorrectAnswer: false
-            }]
-        }else if(incorreta2 !== ""){
-            objetoRespostas = [{
-                text: correta,
-                image: imagem,
-                isCorrectAnswer: true
-            },
-            {
-                text: incorreta1,
-                image: imgIncorreta1,
-                isCorrectAnswer: false
-            },
-            {
-            text: incorreta2,
-            image: imgIncorreta2,
-            isCorrectAnswer: false
-            }]
+        if(texto.length >= 20){
+            if(verificarCor <= 16777215 && cor.length === 7){
+                if(correta !== ""){
+                    if(imagem.slice(0, 4) == "www." || imagem.slice(0, 4) == "http"){
+                        if(incorreta1 !== "" && (imgIncorreta1.slice(0, 4) == "www." || imgIncorreta1.slice(0, 4) == "http")){
+                            if(incorreta3 !== "" && (imgIncorreta3.slice(0, 4) == "www." || imgIncorreta3.slice(0, 4) == "http")){
+                                objetoRespostas = [{
+                                    text: correta,
+                                    image: imagem,
+                                    isCorrectAnswer: true
+                                },
+                                {
+                                    text: incorreta1,
+                                    image: imgIncorreta1,
+                                    isCorrectAnswer: false
+                                },
+                                {
+                                    text: incorreta2,
+                                    image: imgIncorreta2,
+                                    isCorrectAnswer: false
+                                },
+                                {
+                                    text: incorreta3,
+                                    image: imgIncorreta3,
+                                    isCorrectAnswer: false
+                                }]
+                            }else if(incorreta2 !== "" && (imgIncorreta2.slice(0, 4) == "www." || imgIncorreta2.slice(0, 4) == "http")){
+                                objetoRespostas = [{
+                                    text: correta,
+                                    image: imagem,
+                                    isCorrectAnswer: true
+                                },
+                                {
+                                    text: incorreta1,
+                                    image: imgIncorreta1,
+                                    isCorrectAnswer: false
+                                },
+                                {
+                                    text: incorreta2,
+                                    image: imgIncorreta2,
+                                    isCorrectAnswer: false
+                                }]
+                            }else {
+                                objetoRespostas = [{
+                                    text: correta,
+                                    image: imagem,
+                                    isCorrectAnswer: true
+                                },
+                                {
+                                    text: incorreta1,
+                                    image: imgIncorreta1,
+                                    isCorrectAnswer: false
+                                }]
+                            }
+                            objetoRespostas1.push(objetoRespostas)
+
+                            textos.push(texto)
+                            cores.push(cor)
+                            quizzCriado.textos = textos
+                            quizzCriado.cores = cores
+                            prosseguir33()
+                        }else{
+                            alert(`Você precisa preencher pelo menos uma resposta incorreta na pergunta ${i}!`)
+                        }
+                    }else{
+                        alert(`A imagem da resposta certa da pergunta ${i} precisa estar num link válido!`)
+                    }
+                }else{
+                    alert(`A resposta certa da pergunta ${i} não pode estar vazia!`)
+                }
+            }else{
+                alert(`A cor da pergunta ${i} precisa estar no formato "#xxxxxx" onde o 'x' deve ser um caractere hexadecimal(0-9, A-F)!`)
+            }
         }else{
-            objetoRespostas = [{
-                text: correta,
-                image: imagem,
-                isCorrectAnswer: true
-            },
-            {
-                text: incorreta1,
-                image: imgIncorreta1,
-                isCorrectAnswer: false
-            }]
+            alert(`A pergunta ${i} precisa ter pelo menos 20 caracteres!`)
         }
+    
 
-        objetoRespostas1.push(objetoRespostas)
 
-        textos.push(texto)
-        cores.push(cor)
+
         // corretas.push(correta)
         // imagens.push(imagem)
         // incorretas1.push(incorreta1)
@@ -185,8 +210,7 @@ for (let i = 1; i <= criarQntPerguntas; i++){
         // imgIncorretas3.push(imgIncorreta3)
 
 
-        quizzCriado.textos = textos
-        quizzCriado.cores = cores
+
         // quizzCriado.corretas = corretas
         // quizzCriado.imagens = imagens
         // quizzCriado.incorretas1 = incorretas1
@@ -196,19 +220,19 @@ for (let i = 1; i <= criarQntPerguntas; i++){
         // quizzCriado.incorretas3 = incorretas3
         // quizzCriado.imgIncorretas3 = imgIncorretas3
 
-             
+
         // criarPerguntas()
 
     // } else {
     //     alert("Preencha os dados corretamente!")
     //     break
     // }
-    prosseguir33()
     
     
     
     
 }
+
 }
 
 // tela 3.3
