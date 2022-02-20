@@ -37,7 +37,7 @@
     <main>
         <section class="home">
             <!-- ...SEUS QUIZZES.. -->
-            <div class="seus-quizzes">
+            <div class="seus-quizzes none">
                 <div class="titulo">
                     <p>Seus Quizes</p>
                     <ion-icon name="add-circle" onclick="criarQuizz()"></ion-icon>
@@ -53,9 +53,9 @@
                 </div>
             </div>
             <!-- ...... -->
-            <div class="container criar-quizz " onclick="criarQuizz()">
+            <div class="container criar-quizz " >
                 <p>Você não criou nenhum quizz ainda :(</p>
-                <button class="botao-quiz">Criar Quizz</button>
+                <button onclick="criarQuizz()" class="botao-quiz">Criar Quizz</button>
             </div>
             <div class="titulo">
                 <p>Todos os Quizzes</p>
@@ -165,17 +165,17 @@
             </div>
 
             <div class="final-tela-criacao none">
-                <div class="criacao titulo">
+                <!-- <div class="criacao titulo">
                     <p>Seu quizz está pronto!</p>
                 </div>
-                <div class="container card-quizz" onclick="acessarQuizz()">
+                <div class="container card-quizz">
                     <div class="layer"></div>
                     <img src="" alt="">
                     <span></span>
-                </div>
+                </div> -->
 
-                <button class="botao" onclick="">Acessar Quizz</button>
-                <button class="botao-voltar" onclick="voltar()">Voltar pra home</button>
+                <button class="botao reiniciar-quizz" onclick="acessarQuizz()">Acessar Quizz</button>
+                <p class="voltar-home" onclick="voltar()">Voltar pra home</p>
             </div>
 
         </section>

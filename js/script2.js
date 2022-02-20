@@ -233,15 +233,15 @@ function prosseguir33(){
     <button class="botao" onclick="validarNivel()">Finalizar Quizz</button>
     `
 }
-
+let acertoMinimo;
 function validarNivel(){
     for (let i = 1; i <= criarQntNiveis; i++){
         let tituloNivel = document.querySelector(`.titulo-nivel${i}`).value
-        let acertoMinimo = document.querySelector(`.acerto-minimo${i}`).value
+        acertoMinimo = document.querySelector(`.acerto-minimo${i}`).value
         let imgNivel = document.querySelector(`.img-nivel${i}`).value
         let descricaoNivel = document.querySelector(`.descricao-nivel${i}`).value
-        
-        if(acertoMinimo === '0'){
+
+        if(acertoMinimo == 0){
             valorMin = 1;
         }
     
@@ -259,8 +259,6 @@ function validarNivel(){
                                 niveisCriado.acertoMinimos = acertoMinimos
                                 niveisCriado.imgNiveis = imgNiveis
                                 niveisCriado.descricaoNiveis = descricaoNiveis
-                            
-                                finalizarQuizz()
                             }else{
                                 alert(`O quiz precisa ter pelo menos 1 nivel com acerto mínimo igual a 0`)
                             }
@@ -278,11 +276,10 @@ function validarNivel(){
             }
 
 }
-
+finalizarQuizz();
 }
 
 function finalizarQuizz(){
-    valorMin = 0;
     enviarPerguntas()
     enviarNiveis()
 
@@ -294,14 +291,52 @@ function finalizarQuizz(){
     }
 
 
-
-
     let promessaQuizz;
     promessaQuizz = axios.post("https://mock-api.driven.com.br/api/v4/buzzquizz/quizzes",novoQuizz);
+    promessaQuizz.then(telaSucesso);
+    promessaQuizz.catch(casoDoErro);
+
 
     // objeto1.push(novoQuizz)
     
 }
+let idDoQuizz;
+let novoQuizzSerializado;
+function telaSucesso(quizz){
+    idDoQuizz = quizz.data;
+    id = idDoQuizz.id;
+    quizzEnviado = {
+        id: id,
+        title: criarTitulo,
+        image: criarImg,
+        questions: questions,
+        levels: levels
+    }
+    valorMin = 0;
+    novoQuizzSerializado = JSON.stringify(quizzEnviado);
+    localStorage.setItem("Quizzes", novoQuizzSerializado);
+    console.log(quizz)
+    document.querySelector(".final-tela-criacao").classList.remove("none");
+    document.querySelector(".criacao-quiz").classList.add("none")
+
+    document.querySelector(".final-tela-criacao").innerHTML = 
+    `<div class="criacao titulo">
+        <p>Seu quizz está pronto!</p>
+    </div>
+    <div class="container card-quizz">
+        <div class="layer"></div>
+        <img src="${novoQuizz.image}" alt="">
+        <span>${novoQuizz.title}</span>
+    </div>`
+}
+
+// function armazenarQuizzLocalStorage(){
+//     const novoQuizzSerializado = JSON.stringify(novoQuizzResposta);
+//     localStorage.setItem("Quizzes", novoQuizzSerializado);
+
+//     // const quizzArmazenado = localStorage.getItem("Quizzes");
+//     // const quizzArmazenadoDeserializado = JSON.parse(quizzArmazenado);
+// }
 
 function enviarPerguntas(){
     for (let i = 0; i <= criarQntPerguntas-1; i++){
@@ -327,4 +362,7 @@ function enviarNiveis(){
             }
         )
     }
+}
+function casoDoErro(erro){
+    console.log(erro.response);
 }

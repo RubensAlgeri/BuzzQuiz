@@ -1,4 +1,4 @@
-let cardQuizz, possuiQuizz
+let cardQuizz;
 
 let objeto1 = [];
 let tituloQuiz;
@@ -21,8 +21,8 @@ let n = 2;
 function buscarQuizz() {
     displayQuizz()
     setInterval(displayQuizz, 5000);
+    seusQuizzes()
         function displayQuizz() {
-            seusQuizzes()
             const promessa = axios.get("https://mock-api.driven.com.br/api/v4/buzzquizz/quizzes");
             promessa.then(promessaCumprida);
 }}
@@ -55,8 +55,11 @@ function acessarQuizz(id){
     document.querySelector(".pagina-quizz").classList.remove("none");
     const promise = axios.get(`https://mock-api.driven.com.br/api/v4/buzzquizz/quizzes/${idDoQuizz}`);
     promise.then(obterPerguntas);
+    promise.catch(verErro);
 }
-
+function verErro(erro){
+    console.log(erro.response);
+}
 function obterPerguntas(quizz){
     objeto1 = quizz.data;
     objeto2 = objeto1.levels;
@@ -186,12 +189,23 @@ function comparador() {
     return Math.random() - 0.5;
 }
 // -----------------------------------------------------------------
-
+let quizzArmazenado;
+let quizzArmazenadoDeserializado;
 function seusQuizzes(){
-    if (possuiQuizz){
+    if (localStorage.getItem("Quizzes") !== null){
         document.querySelector(".seus-quizzes").classList.remove("none")
         document.querySelector(".criar-quizz").classList.add("none")
-    } else{
+        quizzArmazenado = localStorage.getItem("Quizzes");
+        quizzArmazenadoDeserializado = JSON.parse(quizzArmazenado);
+        document.querySelector(".seus-quizzes").innerHTML +=
+        `<div class="quizzes">
+            <div class="container card-quizz" onclick="acessarQuizz(${quizzArmazenadoDeserializado.id})">
+                <div class="layer"></div>
+                <img src="${quizzArmazenadoDeserializado.image}" alt="">
+                <span>${quizzArmazenadoDeserializado.title}</span>
+            </div>
+        </div>`;
+    }else{
     }
 }
 
