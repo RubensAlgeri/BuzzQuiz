@@ -1,9 +1,8 @@
 // tela3.2
 let criarTitulo, criarImg, criarQntPerguntas, criarQntNiveis
 let textos=[], cores=[], corretas=[], imagens=[], incorretas1=[], imgIncorretas1=[], incorretas2=[], imgIncorretas2=[], incorretas3=[], imgIncorretas3=[]
-let quizzCriado = {}
+let quizzCriado = []
 let tituloNiveis=[], acertoMinimos=[], imgNiveis=[], descricaoNiveis=[]
-let niveisCriado = {}
 let novoQuizz
 let questions =[], levels = []
 
@@ -14,20 +13,20 @@ function criarQuizz2() {
     criarQntNiveis = document.querySelector(".criacao-qnt-niveis").value
 
 
-    // if ((criarTitulo.length >= 20 && criarTitulo.length <= 65)
-    //     && (criarImg.slice(0, 4) == "www." || criarImg.slice(0, 4) == "http")
-    //     && (criarQntPerguntas >= 3)
-    //     && (criarQntNiveis >= 2)
-    // ) 
-    // {
+    if ((criarTitulo.length >= 20 && criarTitulo.length <= 65)
+        && (criarImg.slice(0, 4) == "www." || criarImg.slice(0, 4) == "http")
+        && (criarQntPerguntas >= 3)
+        && (criarQntNiveis >= 2)
+    ) 
+    {
         quizzCriado.titulo = criarTitulo
         quizzCriado.imgTitulo = criarImg
 
         console.log("SHOW DE BOLINHAS!!!! o0º%o0º%o0º%o0º%o0º")
         criarPerguntas()
-    // } else {
-    //     alert("Preencha os dados corretamente!")
-    // }
+    } else {
+        alert("Preencha os dados corretamente!")
+    }
 
 
 }
@@ -109,13 +108,13 @@ for (let i = 1; i <= criarQntPerguntas; i++){
     let imgIncorreta3 = document.querySelector(`.img-incorreta${i}3`).value
 
     let verificarCor =parseInt(cor.replace("#","0x"))
-    // if ((texto.length >= 20)
-    //     && (verificarCor <= 16777215)
-    //     && (correta.length >= 3)
-    //     && ((imagem.slice(0, 4) == "www." || imagem.slice(0, 4) == "http"))
-    //     && (incorreta1.length >= 2)
-    //     && ((imgIncorreta1.slice(0, 4) == "www." || imgIncorreta1.slice(0, 4) == "http"))
-    // ) 
+    if ((texto.length >= 20)
+        && (verificarCor <= 16777215)
+        && (correta.length >= 3)
+        && ((imagem.slice(0, 4) == "www." || imagem.slice(0, 4) == "http"))
+        && (incorreta1.length >= 2)
+        && ((imgIncorreta1.slice(0, 4) == "www." || imgIncorreta1.slice(0, 4) == "http"))
+    ) 
     {
         // Alterar a ordem, por enquanto estou deixando para teste
         textos.push(texto)
@@ -141,11 +140,11 @@ for (let i = 1; i <= criarQntPerguntas; i++){
         quizzCriado.imgIncorretas3 = imgIncorretas3
 
              
-        // criarPerguntas()
+        
 
-    // } else {
-    //     alert("Preencha os dados corretamente!")
-    //     break
+    } else {
+        alert("Preencha os dados corretamente!")
+        break}
     }
     prosseguir33()
     
@@ -153,11 +152,10 @@ for (let i = 1; i <= criarQntPerguntas; i++){
     
     
 }
-}
+
 
 // tela 3.3
 function prosseguir33(){
-    // falta validar os itens da tela 3.2
     document.querySelector(".segunda-tela-criacao").classList.add("none")
     document.querySelector(".terceira-tela-criacao").classList.remove("none")
     document.querySelector(".terceira-tela-criacao").innerHTML = `
@@ -229,30 +227,15 @@ function finalizarQuizz(){
     } 
 
 
-    // {
-    //     title: quizzCriado.titulo,
-    //     image: quizzCriado.imgTitulo,
-    //     questions: questions,
-    //     levels: [
-    //         {
-    //             title: "Título do nível 1",
-    //             image: "https://http.cat/411.jpg",
-    //             text: "Descrição do nível 1",
-    //             minValue: 0
-    //         },
-    //         {
-    //             title: "Título do nível 2",
-    //             image: "https://http.cat/412.jpg",
-    //             text: "Descrição do nível 2",
-    //             minValue: 50
-    //         }
-    //     ]
-    // };
-
     const promessaQuizz = axios.post("https://mock-api.driven.com.br/api/v4/buzzquizz/quizzes",novoQuizz)
+    promessaQuizz.then(promessaQuizzCumprida);
+    objeto1.push(novoQuizz)   
+}
 
-    objeto1.push(novoQuizz)
-    
+function promessaQuizzCumprida(resposta) {
+    informacoes = resposta.data.id;
+    quizzCriado.push(informacoes) //id
+    console.log(informacoes);
 }
 
 function enviarPerguntas(){

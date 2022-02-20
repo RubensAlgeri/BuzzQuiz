@@ -31,6 +31,7 @@ function promessaCumprida(resposta) {
     quantidadeDeCards = resposta.data.length;
     // console.log("quantidade de cards"+quantidadeDeCards);
     cardQuizz = resposta.data;
+    console.log("CARDQUIZZ: "+cardQuizz)
     renderizarQuizzes(cardQuizz);
     }
 
@@ -219,4 +220,4 @@ function voltar(){
 
 
 
-buscarQuizz()
+// buscarQuizz()
