@@ -182,6 +182,7 @@ body{
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+    align-items: center;
     padding: 0 4.79%;
 }
 
@@ -190,11 +191,13 @@ body{
     height: auto;
 }
 .img-pergunta p{
+    overflow: hidden;
     font-weight:  700;
     max-width: 43.7vw;
     font-size:  13px;
     line-height: 15.23px;
-    padding: 5px 0 12px 0;
+    margin: 5px 0 12px 0;
+    word-break: keep-all;
 }
 
 /* fim do quizz */
@@ -264,16 +267,26 @@ body{
         display: flex;
         justify-content: center;
         flex-wrap: wrap;
-        margin: 0 50px;
+        margin: 0 150px;
+    }
+    .topo-pergunta{
+        height: auto;
+    }
+    .topo-pergunta p{
+        font-size: 23px;
     }
     .pergunta{
         width: 759px;
-        height: 676px;
+        height: auto;
     }
     .img-pergunta img{
         width: 329.91px;
         height: 175.2px;
     }
+    .img-pergunta p{
+        max-width: 329.91px;
+    }
+    
     .nome-quizz img{
         object-fit: cover;
     }
@@ -291,7 +304,9 @@ body{
         margin-right: 21px;
     }
     .msg-final{
-        width: 318px;
+        overflow-x: hidden;
+        word-break: keep-all;
+        width: 290px;
         margin: 0;
     }
     .meme-final{

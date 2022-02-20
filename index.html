@@ -36,35 +36,27 @@
     </header>
     <main>
         <section class="home">
-            <!-- ...SEUS QUIZZES.. -->
-            <div class="seus-quizzes none">
+
+            <div data-identifier="user-quizzes" class="seus-quizzes none">
                 <div class="titulo">
                     <p>Seus Quizes</p>
-                    <ion-icon name="add-circle" onclick="criarQuizz()"></ion-icon>
+                    <ion-icon data-identifier="create-quizz" name="add-circle" onclick="criarQuizz()"></ion-icon>
                 </div>
-                <div class="quizzes">
-                    <div class="container card-quizz" onclick="acessarQuizz()">
-                        <div class="layer"></div>
-                        <img src="./img/simpsons.png" alt="">
-                        <span>Acerte os personagens corretos dos Simpsons e prove seu amor!</span>
+                
                     </div>
 
-                    <!-- renderizar SEUS quizzes -->
                 </div>
             </div>
             <!-- ...... -->
-            <div class="container criar-quizz " onclick="criarQuizz()">
+            <div class="container criar-quizz " >
                 <p>Você não criou nenhum quizz ainda :(</p>
-                <button class="botao-quiz">Criar Quizz</button>
+                <button data-identifier="create-quizz" onclick="criarQuizz()" class="botao-quiz">Criar Quizz</button>
             </div>
             <div class="titulo">
                 <p>Todos os Quizzes</p>
             </div>
-            <div class="quizzes quiz-api">
-                <div class="container card-quizz" onclick="acessarQuizz()">
-                    <div class="layer"></div>
-                    <img src="./img/simpsons.png" alt="">
-                    <span>Acerte os personagens corretos dos Simpsons e prove seu amor!</span>
+            <div data-identifier="general-quizzes" class="quizzes quiz-api">
+
                 </div>
 
                 <!-- renderizar quizzes -->
@@ -79,10 +71,10 @@
             </figure>
             <section class="container-perguntas-quizz">
                 <article class="perguntas">
-
             
             </article>
-            <article class="fim-quizz none">
+            
+            <article data-identifier="quizz-result" class="fim-quizz none">
 
             </article>
         </section>
@@ -127,7 +119,7 @@
                     <div class="pergunta"></div> 
                     <li><input class="incorreta12"  type="text" placeholder="Resposta incorreta 2"></li>
                     <li><input class="img-incorreta12"  type="text" placeholder="URL da imagem 2"></li>
-                 
+                
                     <div class="pergunta"></div> 
                     <li><input class="incorreta13" type="text" placeholder="Resposta incorreta 3"></li>
                     <li><input class="img-incorreta13" type="text" placeholder="URL da imagem 3"></li>
@@ -165,16 +157,9 @@
             </div>
 
             <div class="final-tela-criacao none">
-                <div class="criacao titulo">
-                    <p>Seu quizz está pronto!</p>
-                </div>
-                <div class="container card-quizz" onclick="acessarQuizz()">
-                    <div class="layer"></div>
-                    <img src="" alt="">
-                    <span></span>
-                </div>
 
-                <button class="botao" onclick="">Acessar Quizz</button>
+
+                <button class="botao" onclick="acessarQuizz()">Acessar Quizz</button>
                 <button class="botao-voltar" onclick="voltar()">Voltar pra home</button>
             </div>
 
