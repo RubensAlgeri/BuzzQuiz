@@ -295,13 +295,9 @@ function finalizarQuizz(){
     promessaQuizz = axios.post("https://mock-api.driven.com.br/api/v4/buzzquizz/quizzes",novoQuizz);
     promessaQuizz.then(telaSucesso);
     promessaQuizz.catch(casoDoErro);
-
-
-    // objeto1.push(novoQuizz)
     
 }
 let idDoQuizz;
-let novoQuizzSerializado;
 function telaSucesso(quizz){
     idDoQuizz = quizz.data;
     id = idDoQuizz.id;
@@ -312,9 +308,23 @@ function telaSucesso(quizz){
         questions: questions,
         levels: levels
     }
+
     valorMin = 0;
-    novoQuizzSerializado = JSON.stringify(quizzEnviado);
-    localStorage.setItem("Quizzes", novoQuizzSerializado);
+
+    if (localStorage.getItem('Quizzes') === null) {
+
+        localStorage.setItem('Quizzes', JSON.stringify([quizzEnviado]));
+    } else {
+
+        localStorage.setItem(
+            'Quizzes',
+            JSON.stringify([
+            ...JSON.parse(localStorage.getItem('Quizzes')),
+            quizzEnviado
+            ])
+        );
+    }
+    
     console.log(quizz)
     document.querySelector(".final-tela-criacao").classList.remove("none");
     document.querySelector(".criacao-quiz").classList.add("none")
@@ -329,14 +339,6 @@ function telaSucesso(quizz){
         <span>${novoQuizz.title}</span>
     </div>`
 }
-
-// function armazenarQuizzLocalStorage(){
-//     const novoQuizzSerializado = JSON.stringify(novoQuizzResposta);
-//     localStorage.setItem("Quizzes", novoQuizzSerializado);
-
-//     // const quizzArmazenado = localStorage.getItem("Quizzes");
-//     // const quizzArmazenadoDeserializado = JSON.parse(quizzArmazenado);
-// }
 
 function enviarPerguntas(){
     for (let i = 0; i <= criarQntPerguntas-1; i++){

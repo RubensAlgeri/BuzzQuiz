@@ -193,20 +193,24 @@ let quizzArmazenado;
 let quizzArmazenadoDeserializado;
 function seusQuizzes(){
     if (localStorage.getItem("Quizzes") !== null){
+
         document.querySelector(".seus-quizzes").classList.remove("none")
         document.querySelector(".criar-quizz").classList.add("none")
+        
         quizzArmazenado = localStorage.getItem("Quizzes");
         quizzArmazenadoDeserializado = JSON.parse(quizzArmazenado);
+
+        quizzArmazenadoDeserializado.forEach(element => {
         document.querySelector(".seus-quizzes").innerHTML +=
         `<div class="quizzes">
-            <div class="container card-quizz" onclick="acessarQuizz(${quizzArmazenadoDeserializado.id})">
+            <div class="container card-quizz" onclick="acessarQuizz(${element.id})">
                 <div class="layer"></div>
-                <img src="${quizzArmazenadoDeserializado.image}" alt="">
-                <span>${quizzArmazenadoDeserializado.title}</span>
+                <img src="${element.image}" alt="">
+                <span>${element.title}</span>
             </div>
         </div>`;
-    }else{
-    }
+    });
+}
 }
 
 function criarQuizz(){
