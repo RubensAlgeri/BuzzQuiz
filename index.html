@@ -36,35 +36,27 @@
     </header>
     <main>
         <section class="home">
-            <!-- ...SEUS QUIZZES.. -->
-            <div class="seus-quizzes none">
+
+            <div data-identifier="user-quizzes" class="seus-quizzes none">
                 <div class="titulo">
                     <p>Seus Quizes</p>
-                    <ion-icon name="add-circle" onclick="criarQuizz()"></ion-icon>
+                    <ion-icon data-identifier="create-quizz" name="add-circle" onclick="criarQuizz()"></ion-icon>
                 </div>
-                <div class="quizzes">
-                    <div class="container card-quizz" onclick="acessarQuizz()">
-                        <div class="layer"></div>
-                        <img src="./img/simpsons.png" alt="">
-                        <span>Acerte os personagens corretos dos Simpsons e prove seu amor!</span>
+                
                     </div>
 
-                    <!-- renderizar SEUS quizzes -->
                 </div>
             </div>
             <!-- ...... -->
             <div class="container criar-quizz " >
                 <p>Você não criou nenhum quizz ainda :(</p>
-                <button onclick="criarQuizz()" class="botao-quiz">Criar Quizz</button>
+                <button data-identifier="create-quizz" onclick="criarQuizz()" class="botao-quiz">Criar Quizz</button>
             </div>
             <div class="titulo">
                 <p>Todos os Quizzes</p>
             </div>
-            <div class="quizzes quiz-api">
-                <div class="container card-quizz" onclick="acessarQuizz()">
-                    <div class="layer"></div>
-                    <img src="./img/simpsons.png" alt="">
-                    <span>Acerte os personagens corretos dos Simpsons e prove seu amor!</span>
+            <div data-identifier="general-quizzes" class="quizzes quiz-api">
+
                 </div>
 
                 <!-- renderizar quizzes -->

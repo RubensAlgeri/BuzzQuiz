@@ -38,7 +38,7 @@ function renderizarQuizzes(cardQuizz){
     divQuizzes.innerHTML = ""
     for (let i = 0; i < quantidadeDeCards; i++ ){
         divQuizzes.innerHTML += `
-        <div class="container card-quizz" onclick="acessarQuizz(${cardQuizz[i].id})">
+        <div data-identifier="quizz-card" class="container card-quizz" onclick="acessarQuizz(${cardQuizz[i].id})">
                     <div class="layer"></div>
                     <img src="${cardQuizz[i].image}" alt="">
                     <span>${cardQuizz[i].title}</span>
@@ -203,7 +203,7 @@ function seusQuizzes(){
         quizzArmazenadoDeserializado.forEach(element => {
         document.querySelector(".seus-quizzes").innerHTML +=
         `<div class="quizzes">
-            <div class="container card-quizz" onclick="acessarQuizz(${element.id})">
+            <div data-identifier="quizz-card" class="container card-quizz" onclick="acessarQuizz(${element.id})">
                 <div class="layer"></div>
                 <img src="${element.image}" alt="">
                 <span>${element.title}</span>

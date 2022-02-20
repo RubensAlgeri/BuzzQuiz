@@ -191,11 +191,13 @@ body{
     height: auto;
 }
 .img-pergunta p{
+    overflow: hidden;
     font-weight:  700;
     max-width: 43.7vw;
     font-size:  13px;
     line-height: 15.23px;
-    padding: 5px 0 12px 0;
+    margin: 5px 0 12px 0;
+    word-break: keep-all;
 }
 
 /* fim do quizz */
@@ -281,6 +283,10 @@ body{
         width: 329.91px;
         height: 175.2px;
     }
+    .img-pergunta p{
+        max-width: 329.91px;
+    }
+    
     .nome-quizz img{
         object-fit: cover;
     }
