@@ -308,6 +308,17 @@ body{
     align-items: center; 
 }
 
+.primeira-tela-criacao, .segunda-tela-criacao, .terceira-tela-criacao{
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.final-tela-criacao{
+    margin-left: -13px;
+    margin-right: auto;
+}
+
  .pergunta1{ /*MUDEI O NOME PQ JA TINHA CRIADO UMA CLASSE PERGUNTA */
     width: 300px;
     padding: 10px 0;
@@ -355,7 +366,7 @@ input::placeholder {
 
 textarea{
     height: 100px;
-    width: 90vw;
+    width: 333px;
     border: 1px solid #D1D1D1;
     border-radius: 5px;
     font-size: 19px;
@@ -510,7 +521,17 @@ textarea::placeholder {
         width: 580px;
     }
 
-    .pergunta1{ /*MUDEI O NOME PQ JA TINHA CRIADO UMA CLASSE PERGUNTA */
+    
+    .final-tela-criacao>.card-quizz{
+        height: 266px;
+        width: 500px;
+    }
+    .final-tela-criacao>.card-quizz>img{
+        height: 266px;
+        width: 500px;
+    }
+
+    .pergunta1{ 
         width: 600px;
         padding: 10px 0;
         margin-top: 12px;
@@ -520,6 +541,10 @@ textarea::placeholder {
         display: flex;
         justify-content: space-between;   
         background-color: #FFFFFF;
+    }
+
+    .none{
+        display: none;
     }
 }
 
