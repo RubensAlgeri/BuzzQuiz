@@ -53,6 +53,7 @@ function acessarQuizz(id){
     setTimeout(function(){(document.querySelector(`.pergunta:nth-child(1)`).scrollIntoView({block: "center", behavior: "smooth"}))},1000);
     
     document.querySelector(".home").classList.add("none");
+    document.querySelector(".final-tela-criacao").classList.add("none");
     document.querySelector(".pagina-quizz").classList.remove("none");
     const promise = axios.get(`https://mock-api.driven.com.br/api/v4/buzzquizz/quizzes/${idDoQuizz}`);
     promise.then(obterPerguntas);

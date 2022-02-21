@@ -250,10 +250,6 @@ function validarNivel(){
                                 imgNiveis.push(imgNivel)
                                 descricaoNiveis.push(descricaoNivel)
 
-                                niveisCriado.tituloNiveis = tituloNiveis
-                                niveisCriado.acertoMinimos = acertoMinimos
-                                niveisCriado.imgNiveis = imgNiveis
-                                niveisCriado.descricaoNiveis = descricaoNiveis
                             }else{
                                 alert(`O quiz precisa ter pelo menos 1 nivel com acerto mínimo igual a 0`)
                             }
@@ -290,6 +286,7 @@ function finalizarQuizz(){
     promessaQuizz = axios.post("https://mock-api.driven.com.br/api/v4/buzzquizz/quizzes",novoQuizz);
     promessaQuizz.then(telaSucesso);
     promessaQuizz.catch(casoDoErro);
+    // objeto1.push(novoQuizz)
     
 }
 let idDoQuizz;
@@ -322,17 +319,23 @@ function telaSucesso(quizz){
     
     console.log(quizz)
     document.querySelector(".final-tela-criacao").classList.remove("none");
-    document.querySelector(".criacao-quiz").classList.add("none")
-
+    document.querySelector(".terceira-tela-criacao").classList.add("none")
+    console.log(id)
+    console.log(idDoQuizz.id)
     document.querySelector(".final-tela-criacao").innerHTML = 
     `<div class="criacao titulo">
         <p>Seu quizz está pronto!</p>
     </div>
-    <div class="container card-quizz">
-        <div class="layer"></div>
+    <div class="container card-quizz onclick="acessarQuizz(${id})">
+        <div class="layer" onclick="acessarQuizz(${idDoQuizz.id})"></div>
         <img src="${novoQuizz.image}" alt="">
         <span>${novoQuizz.title}</span>
-    </div>`
+    </div>
+    <footer class="final-pag-quizz">
+        <button onclick="reiniciarQuizz()" class="reiniciar-quizz">Reiniciar Quizz</button>
+        <p onclick="voltar()" class="voltar-home">Voltar pra home</p>
+    </footer>
+    `
 }
 
 function enviarPerguntas(){
