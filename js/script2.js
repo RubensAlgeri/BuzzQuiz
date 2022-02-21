@@ -8,6 +8,7 @@ let questions =[], levels = []
 let objetoRespostas = [];
 let objetoRespostas1 = [];
 let valorMin = 0;
+let acertoMinimo;
 
 
 function prosseguirPerguntas() {
@@ -256,7 +257,6 @@ function criarNiveis(){
     <button class="botao" onclick="validarNivel()">Finalizar Quizz</button>
     `
 }
-let acertoMinimo;
 function validarNivel(){
     for (let i = 1; i <= criarQntNiveis; i++){
         let tituloNivel = document.querySelector(`.titulo-nivel${i}`).value
@@ -278,7 +278,7 @@ function validarNivel(){
                                 imgNiveis.push(imgNivel)
                                 descricaoNiveis.push(descricaoNivel)
 
-                                if(i === criarQntNiveis){
+                                if(i == criarQntNiveis){
                                     finalizarQuizz();
                                 }
 
