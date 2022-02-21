@@ -49,51 +49,51 @@ function criarPerguntas() {
         </div>
         <ul class="caixa">
                     <div class="pergunta1">Pergunta 1</div>
-                    <li><input class="texto1" type="text" placeholder="Texto da pergunta"></li>
-                    <li><input class="cor1" type="text" placeholder="Cor de fundo da pergunta"></li> 
+                    <li><input data-identifier="question" class="texto1" type="text" placeholder="Texto da pergunta"></li>
+                    <li><input data-identifier="question" class="cor1" type="text" placeholder="Cor de fundo da pergunta"></li> 
                 
                     <div class="pergunta1">Resposta correta</div> 
-                    <li><input class="correta1" type="text" placeholder="Resposta correta"></li>
-                    <li><input class="imagem1" type="text" placeholder="URL da imagem"></li>
+                    <li><input data-identifier="question" class="correta1" type="text" placeholder="Resposta correta"></li>
+                    <li><input data-identifier="question" class="imagem1" type="text" placeholder="URL da imagem"></li>
                 
                     <div class="pergunta1">Respostas incorretas</div>
-                    <li><input class="incorreta11" type="text" placeholder="Resposta incorreta 1"></li>
-                    <li><input class="img-incorreta11" type="text" placeholder="URL da imagem 1"></li> 
+                    <li><input data-identifier="question" class="incorreta11" type="text" placeholder="Resposta incorreta 1"></li>
+                    <li><input data-identifier="question" class="img-incorreta11" type="text" placeholder="URL da imagem 1"></li> 
                 
                     <div class="pergunta1"></div> 
-                    <li><input class="incorreta12"  type="text" placeholder="Resposta incorreta 2"></li>
-                    <li><input class="img-incorreta12"  type="text" placeholder="URL da imagem 2"></li>
+                    <li><input data-identifier="question" class="incorreta12"  type="text" placeholder="Resposta incorreta 2"></li>
+                    <li><input data-identifier="question" class="img-incorreta12"  type="text" placeholder="URL da imagem 2"></li>
                 
                     <div class="pergunta1"></div> 
-                    <li><input class="incorreta13" type="text" placeholder="Resposta incorreta 3"></li>
-                    <li><input class="img-incorreta13" type="text" placeholder="URL da imagem 3"></li>
+                    <li><input data-identifier="question" class="incorreta13" type="text" placeholder="Resposta incorreta 3"></li>
+                    <li><input data-identifier="question" class="img-incorreta13" type="text" placeholder="URL da imagem 3"></li>
                 </ul>
         `
     for (let i = 0; i < (criarQntPerguntas - 1); i++) {
         document.querySelector(".segunda-tela-criacao").innerHTML = document.querySelector(".segunda-tela-criacao").innerHTML +
             `
             <div onclick="abrirPergunta(this)">    
-            <div class="pergunta1 sumir"><p>Pergunta ${i + 2}</p><ion-icon class="icone-perguntas" name="reader-outline"></ion-icon></div> 
+            <div class="pergunta1 sumir" data-identifier="expand"><p>Pergunta ${i + 2}</p><ion-icon class="icone-perguntas" name="reader-outline"></ion-icon></div> 
             <ul class="caixa caixa${i + 2} none">
                     <div class="pergunta1 pergunta${i + 2}">Pergunta ${i + 2}</div>
-                    <li><input class="texto${i + 2}" type="text" placeholder="Texto da pergunta"></li>
-                    <li><input class="cor${i + 2}" type="text" placeholder="Cor de fundo da pergunta"></li> 
+                    <li><input data-identifier="question" class="texto${i + 2}" type="text" placeholder="Texto da pergunta"></li>
+                    <li><input data-identifier="question" class="cor${i + 2}" type="text" placeholder="Cor de fundo da pergunta"></li> 
                 
                     <div class="pergunta1 ">Resposta correta</div> 
-                    <li><input class="correta${i + 2}" type="text" placeholder="Resposta correta"></li>
-                    <li><input class="imagem${i + 2}" type="text" placeholder="URL da imagem"></li>
+                    <li><input data-identifier="question" class="correta${i + 2}" type="text" placeholder="Resposta correta"></li>
+                    <li><input data-identifier="question" class="imagem${i + 2}" type="text" placeholder="URL da imagem"></li>
                 
                     <div class="pergunta1">Respostas incorretas</div>
-                    <li><input class="incorreta${i + 2}1" type="text" placeholder="Resposta incorreta 1"></li>
-                    <li><input class="img-incorreta${i + 2}1" type="text" placeholder="URL da imagem 1"></li> 
+                    <li><input data-identifier="question" class="incorreta${i + 2}1" type="text" placeholder="Resposta incorreta 1"></li>
+                    <li><input data-identifier="question" class="img-incorreta${i + 2}1" type="text" placeholder="URL da imagem 1"></li> 
                 
                     <div class="pergunta1"></div> 
-                    <li><input class="incorreta${i + 2}2" type="text" placeholder="Resposta incorreta 2"></li>
-                    <li><input class="img-incorreta${i + 2}2" type="text" placeholder="URL da imagem 2"></li>
+                    <li><input data-identifier="question" class="incorreta${i + 2}2" type="text" placeholder="Resposta incorreta 2"></li>
+                    <li><input data-identifier="question" class="img-incorreta${i + 2}2" type="text" placeholder="URL da imagem 2"></li>
                 
                     <div class="pergunta1"></div> 
-                    <li><input class="incorreta${i + 2}3" type="text" placeholder="Resposta incorreta 3"></li>
-                    <li><input class="img-incorreta${i + 2}3" type="text" placeholder="URL da imagem 3"></li>
+                    <li><input data-identifier="question" class="incorreta${i + 2}3" type="text" placeholder="Resposta incorreta 3"></li>
+                    <li><input data-identifier="question" class="img-incorreta${i + 2}3" type="text" placeholder="URL da imagem 3"></li>
                 </ul>
         </div>     
         `
@@ -207,22 +207,25 @@ function prosseguir33(){
     document.querySelector(".terceira-tela-criacao").innerHTML = `
     <ul class="caixa">
         <div class="pergunta1 ">Nível 1</div>
-        <li><input class="titulo-nivel1" type="text" placeholder="Título do nível"></li>
-        <li><input class="acerto-minimo1" type="text" placeholder="% de acerto mínima"></li>
-        <li><input class="img-nivel1" type="text" placeholder="URL da imagem do nível"></li>
-        <li><textarea class="descricao-nivel1"  placeholder="Descrição do nível" class="criar-descricao" cols="35" rows="5"></textarea></li>
+        <li><input data-identifier="level" class="titulo-nivel1" type="text" placeholder="Título do nível"></li>
+        <li><input data-identifier="level" class="acerto-minimo1" type="text" placeholder="% de acerto mínima"></li>
+        <li><input data-identifier="level" class="img-nivel1" type="text" placeholder="URL da imagem do nível"></li>
+        <li><textarea data-identifier="level" class="descricao-nivel1"  placeholder="Descrição do nível" class="criar-descricao" cols="35" rows="5"></textarea></li>
     </ul>
     `
     for (let i = 0; i < (criarQntNiveis - 1); i++) {
         document.querySelector(".terceira-tela-criacao").innerHTML = document.querySelector(".terceira-tela-criacao").innerHTML + 
         `
-    <ul class="caixa">
+        <div onclick="abrirPergunta(this)">    
+            <div class="pergunta1 sumir" data-identifier="expand"><p>Nível ${i + 2}</p><ion-icon class="icone-perguntas" name="reader-outline"></ion-icon></div>
+    <ul class="caixa none">
         <div class="pergunta1 ">Nível ${i+2}</div>
-        <li><input class="titulo-nivel${i+2}" type="text" placeholder="Título do nível"></li>
-        <li><input class="acerto-minimo${i+2}" type="text" placeholder="% de acerto mínima"></li>
-        <li><input class="img-nivel${i+2}" type="text" placeholder="URL da imagem do nível"></li>
-        <li><textarea class="descricao-nivel${i+2}"  placeholder="Descrição do nível" class="criar-descricao" cols="35" rows="5"></textarea></li>
+        <li><input data-identifier="level" class="titulo-nivel${i+2}" type="text" placeholder="Título do nível"></li>
+        <li><input data-identifier="level" class="acerto-minimo${i+2}" type="text" placeholder="% de acerto mínima"></li>
+        <li><input data-identifier="level" class="img-nivel${i+2}" type="text" placeholder="URL da imagem do nível"></li>
+        <li><textarea data-identifier="level" class="descricao-nivel${i+2}"  placeholder="Descrição do nível" class="criar-descricao" cols="35" rows="5"></textarea></li>
     </ul>
+    </div>
     `
     }
     document.querySelector(".terceira-tela-criacao").innerHTML = document.querySelector(".terceira-tela-criacao").innerHTML +
@@ -327,7 +330,7 @@ function telaSucesso(quizz){
     `<div class="criacao titulo">
         <p>Seu quizz está pronto!</p>
     </div>
-    <div class="container card-quizz">
+    <div class="container card-quizz data-identifier="quizz-card" ">
         <div class="layer"></div>
         <img src="${novoQuizz.image}" alt="">
         <span>${novoQuizz.title}</span>
