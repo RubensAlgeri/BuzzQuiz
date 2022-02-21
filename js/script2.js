@@ -8,9 +8,10 @@ let questions =[], levels = []
 let objetoRespostas = [];
 let objetoRespostas1 = [];
 let valorMin = 0;
+let vouCriarNiveis = 0;
 
 
-function criarQuizz2() {
+function prosseguirPerguntas() {
     criarTitulo = document.querySelector(".criacao-titulo").value
     criarImg = document.querySelector(".criacao-img").value
     criarQntPerguntas = document.querySelector(".criacao-qnt-perguntas").value
@@ -23,7 +24,6 @@ function criarQuizz2() {
                     quizzCriado.titulo = criarTitulo
                     quizzCriado.imgTitulo = criarImg
             
-                    console.log("SHOW DE BOLINHAS!!!! o0º%o0º%o0º%o0º%o0º")
                     criarPerguntas()
                 }else{
                     alert("O quizz precisa ter pelo menos 2 niveis!")
@@ -100,7 +100,7 @@ function criarPerguntas() {
     }
     document.querySelector(".segunda-tela-criacao").innerHTML = document.querySelector(".segunda-tela-criacao").innerHTML + 
     `
-    <button class="botao" onclick="validarPerguntas()">Prosseguir pra criar perguntas</button>
+    <button class="botao" onclick="validarPerguntas()">Prosseguir pra criar niveis</button>
     `
 }
 
@@ -117,6 +117,7 @@ for (let i = 1; i <= criarQntPerguntas; i++){
     let imgIncorreta2 = document.querySelector(`.img-incorreta${i}2`).value
     let incorreta3 = document.querySelector(`.incorreta${i}3`).value
     let imgIncorreta3 = document.querySelector(`.img-incorreta${i}3`).value
+
 
     let verificarCor = parseInt(cor.replace("#","0x"))
         if(texto.length >= 20){
@@ -179,21 +180,31 @@ for (let i = 1; i <= criarQntPerguntas; i++){
                             cores.push(cor)
                             quizzCriado.textos = textos
                             quizzCriado.cores = cores
-                            prosseguir33()
+                            
+                            vouCriarNiveis++
+
+                            if(vouCriarNiveis === criarQntPerguntas){
+                            criarNiveis()
+                            }   
                         }else{
                             alert(`Você precisa preencher pelo menos uma resposta incorreta na pergunta ${i}!`)
+                            i = criarQntPerguntas;
                         }
                     }else{
                         alert(`A imagem da resposta certa da pergunta ${i} precisa estar num link válido!`)
+                        i = criarQntPerguntas;
                     }
                 }else{
                     alert(`A resposta certa da pergunta ${i} não pode estar vazia!`)
+                    i = criarQntPerguntas;
                 }
             }else{
                 alert(`A cor da pergunta ${i} precisa estar no formato "#xxxxxx" onde o 'x' deve ser um caractere hexadecimal(0-9, A-F)!`)
+                i = criarQntPerguntas;
             }
         }else{
             alert(`A pergunta ${i} precisa ter pelo menos 20 caracteres!`)
+            i = criarQntPerguntas;
         }
 
 }
@@ -201,7 +212,7 @@ for (let i = 1; i <= criarQntPerguntas; i++){
 }
 
 // tela 3.3
-function prosseguir33(){
+function criarNiveis(){
     document.querySelector(".segunda-tela-criacao").classList.add("none")
     document.querySelector(".terceira-tela-criacao").classList.remove("none")
     document.querySelector(".terceira-tela-criacao").innerHTML = `
