@@ -278,29 +278,52 @@ function validarNivel(){
                                 imgNiveis.push(imgNivel)
                                 descricaoNiveis.push(descricaoNivel)
 
+                                if(i === criarQntNiveis){
+                                    finalizarQuizz();
+                                }
+
                             }else{
                                 alert(`O quiz precisa ter pelo menos 1 nivel com acerto mínimo igual a 0`)
                                 i = criarQntNiveis;
+                                tituloNiveis = [];
+                                acertoMinimos = [];
+                                imgNiveis = [];
+                                descricaoNiveis = [];
                             }
                         }else{
                             alert(`A imagem do nivel ${i} precisa estar num link válido!`)
                             i = criarQntNiveis;
+                            tituloNiveis = [];
+                            acertoMinimos = [];
+                            imgNiveis = [];
+                            descricaoNiveis = [];
                         }
                     }else{
                         alert(`A descrição do nivel ${i} precisa ter no mínimo 30 caracteres!`)
                         i = criarQntNiveis;
+                        tituloNiveis = [];
+                        acertoMinimos = [];
+                        imgNiveis = [];
+                        descricaoNiveis = [];
                     }
                 }else{
                     alert(`O valor do acerto mínimo do nivel ${i} precisa ser um número entre 0-100!`)
                     i = criarQntNiveis;
+                    tituloNiveis = [];
+                    acertoMinimos = [];
+                    imgNiveis = [];
+                    descricaoNiveis = [];
                 }
             }else{
                 alert(`O título do nivel ${i} precisa ter pelo menos 10 caracteres!`)
                 i = criarQntNiveis;
+                tituloNiveis = [];
+                acertoMinimos = [];
+                imgNiveis = [];
+                descricaoNiveis = [];
             }
 
 }
-finalizarQuizz();
 }
 
 function finalizarQuizz(){
