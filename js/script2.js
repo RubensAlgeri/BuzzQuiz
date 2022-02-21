@@ -8,7 +8,6 @@ let questions =[], levels = []
 let objetoRespostas = [];
 let objetoRespostas1 = [];
 let valorMin = 0;
-let vouCriarNiveis = 0;
 
 
 function prosseguirPerguntas() {
@@ -106,108 +105,121 @@ function criarPerguntas() {
 
 
 function validarPerguntas(){
-for (let i = 1; i <= criarQntPerguntas; i++){
-    let texto = document.querySelector(`.texto${i}`).value
-    let cor = document.querySelector(`.cor${i}`).value
-    let correta = document.querySelector(`.correta${i}`).value
-    let imagem = document.querySelector(`.imagem${i}`).value
-    let incorreta1 = document.querySelector(`.incorreta${i}1`).value
-    let imgIncorreta1 = document.querySelector(`.img-incorreta${i}1`).value
-    let incorreta2 = document.querySelector(`.incorreta${i}2`).value
-    let imgIncorreta2 = document.querySelector(`.img-incorreta${i}2`).value
-    let incorreta3 = document.querySelector(`.incorreta${i}3`).value
-    let imgIncorreta3 = document.querySelector(`.img-incorreta${i}3`).value
+    for (let i = 1; i <= criarQntPerguntas; i++){
+        let texto = document.querySelector(`.texto${i}`).value
+        let cor = document.querySelector(`.cor${i}`).value
+        let correta = document.querySelector(`.correta${i}`).value
+        let imagem = document.querySelector(`.imagem${i}`).value
+        let incorreta1 = document.querySelector(`.incorreta${i}1`).value
+        let imgIncorreta1 = document.querySelector(`.img-incorreta${i}1`).value
+        let incorreta2 = document.querySelector(`.incorreta${i}2`).value
+        let imgIncorreta2 = document.querySelector(`.img-incorreta${i}2`).value
+        let incorreta3 = document.querySelector(`.incorreta${i}3`).value
+        let imgIncorreta3 = document.querySelector(`.img-incorreta${i}3`).value
 
 
-    let verificarCor = parseInt(cor.replace("#","0x"))
-        if(texto.length >= 20){
-            if(verificarCor <= 16777215 && cor.length === 7){
-                if(correta !== ""){
-                    if(imagem.slice(0, 4) == "www." || imagem.slice(0, 4) == "http"){
-                        if(incorreta1 !== "" && (imgIncorreta1.slice(0, 4) == "www." || imgIncorreta1.slice(0, 4) == "http")){
-                            if(incorreta3 !== "" && (imgIncorreta3.slice(0, 4) == "www." || imgIncorreta3.slice(0, 4) == "http")){
-                                objetoRespostas = [{
-                                    text: correta,
-                                    image: imagem,
-                                    isCorrectAnswer: true
-                                },
-                                {
-                                    text: incorreta1,
-                                    image: imgIncorreta1,
-                                    isCorrectAnswer: false
-                                },
-                                {
-                                    text: incorreta2,
-                                    image: imgIncorreta2,
-                                    isCorrectAnswer: false
-                                },
-                                {
-                                    text: incorreta3,
-                                    image: imgIncorreta3,
-                                    isCorrectAnswer: false
-                                }]
-                            }else if(incorreta2 !== "" && (imgIncorreta2.slice(0, 4) == "www." || imgIncorreta2.slice(0, 4) == "http")){
-                                objetoRespostas = [{
-                                    text: correta,
-                                    image: imagem,
-                                    isCorrectAnswer: true
-                                },
-                                {
-                                    text: incorreta1,
-                                    image: imgIncorreta1,
-                                    isCorrectAnswer: false
-                                },
-                                {
-                                    text: incorreta2,
-                                    image: imgIncorreta2,
-                                    isCorrectAnswer: false
-                                }]
-                            }else {
-                                objetoRespostas = [{
-                                    text: correta,
-                                    image: imagem,
-                                    isCorrectAnswer: true
-                                },
-                                {
-                                    text: incorreta1,
-                                    image: imgIncorreta1,
-                                    isCorrectAnswer: false
-                                }]
+        let verificarCor = parseInt(cor.replace("#","0x"))
+            if(texto.length >= 20){
+                if(verificarCor <= 16777215 && cor.length === 7){
+                    if(correta !== ""){
+                        if(imagem.slice(0, 4) == "www." || imagem.slice(0, 4) == "http"){
+                            if(incorreta1 !== "" && (imgIncorreta1.slice(0, 4) == "www." || imgIncorreta1.slice(0, 4) == "http")){
+                                if(incorreta3 !== "" && (imgIncorreta3.slice(0, 4) == "www." || imgIncorreta3.slice(0, 4) == "http")){
+                                    objetoRespostas = [{
+                                        text: correta,
+                                        image: imagem,
+                                        isCorrectAnswer: true
+                                    },
+                                    {
+                                        text: incorreta1,
+                                        image: imgIncorreta1,
+                                        isCorrectAnswer: false
+                                    },
+                                    {
+                                        text: incorreta2,
+                                        image: imgIncorreta2,
+                                        isCorrectAnswer: false
+                                    },
+                                    {
+                                        text: incorreta3,
+                                        image: imgIncorreta3,
+                                        isCorrectAnswer: false
+                                    }]
+                                }else if(incorreta2 !== "" && (imgIncorreta2.slice(0, 4) == "www." || imgIncorreta2.slice(0, 4) == "http")){
+                                    objetoRespostas = [{
+                                        text: correta,
+                                        image: imagem,
+                                        isCorrectAnswer: true
+                                    },
+                                    {
+                                        text: incorreta1,
+                                        image: imgIncorreta1,
+                                        isCorrectAnswer: false
+                                    },
+                                    {
+                                        text: incorreta2,
+                                        image: imgIncorreta2,
+                                        isCorrectAnswer: false
+                                    }]
+                                }else {
+                                    objetoRespostas = [{
+                                        text: correta,
+                                        image: imagem,
+                                        isCorrectAnswer: true
+                                    },
+                                    {
+                                        text: incorreta1,
+                                        image: imgIncorreta1,
+                                        isCorrectAnswer: false
+                                    }]
+                                }
+                                objetoRespostas1.push(objetoRespostas)
+
+                                textos.push(texto)
+                                cores.push(cor)
+                                quizzCriado.textos = textos
+                                quizzCriado.cores = cores
+
+                                if(i == criarQntPerguntas){
+                                criarNiveis()
+                                }   
+                            }else{
+                                alert(`Você precisa preencher pelo menos uma resposta incorreta na pergunta ${i}!`)
+                                i = criarQntPerguntas;
+                                objetoRespostas1 = [];
+                                textos = [];
+                                cores = [];
                             }
-                            objetoRespostas1.push(objetoRespostas)
-
-                            textos.push(texto)
-                            cores.push(cor)
-                            quizzCriado.textos = textos
-                            quizzCriado.cores = cores
-                            
-                            vouCriarNiveis++
-
-                            if(vouCriarNiveis === criarQntPerguntas){
-                            criarNiveis()
-                            }   
                         }else{
-                            alert(`Você precisa preencher pelo menos uma resposta incorreta na pergunta ${i}!`)
+                            alert(`A imagem da resposta certa da pergunta ${i} precisa estar num link válido!`)
                             i = criarQntPerguntas;
+                            objetoRespostas1 = [];
+                            textos = [];
+                            cores = [];
                         }
                     }else{
-                        alert(`A imagem da resposta certa da pergunta ${i} precisa estar num link válido!`)
+                        alert(`A resposta certa da pergunta ${i} não pode estar vazia!`)
                         i = criarQntPerguntas;
+                        objetoRespostas1 = [];
+                        textos = [];
+                        cores = [];
                     }
                 }else{
-                    alert(`A resposta certa da pergunta ${i} não pode estar vazia!`)
+                    alert(`A cor da pergunta ${i} precisa estar no formato "#xxxxxx" onde o 'x' deve ser um caractere hexadecimal(0-9, A-F)!`)
                     i = criarQntPerguntas;
+                    objetoRespostas1 = [];
+                    textos = [];
+                    cores = [];
                 }
             }else{
-                alert(`A cor da pergunta ${i} precisa estar no formato "#xxxxxx" onde o 'x' deve ser um caractere hexadecimal(0-9, A-F)!`)
+                alert(`A pergunta ${i} precisa ter pelo menos 20 caracteres!`)
                 i = criarQntPerguntas;
+                objetoRespostas1 = [];
+                textos = [];
+                cores = [];
             }
-        }else{
-            alert(`A pergunta ${i} precisa ter pelo menos 20 caracteres!`)
-            i = criarQntPerguntas;
-        }
 
-}
+    }
 
 }
 
@@ -268,18 +280,23 @@ function validarNivel(){
 
                             }else{
                                 alert(`O quiz precisa ter pelo menos 1 nivel com acerto mínimo igual a 0`)
+                                i = criarQntNiveis;
                             }
                         }else{
                             alert(`A imagem do nivel ${i} precisa estar num link válido!`)
+                            i = criarQntNiveis;
                         }
                     }else{
                         alert(`A descrição do nivel ${i} precisa ter no mínimo 30 caracteres!`)
+                        i = criarQntNiveis;
                     }
                 }else{
                     alert(`O valor do acerto mínimo do nivel ${i} precisa ser um número entre 0-100!`)
+                    i = criarQntNiveis;
                 }
             }else{
                 alert(`O título do nivel ${i} precisa ter pelo menos 10 caracteres!`)
+                i = criarQntNiveis;
             }
 
 }
