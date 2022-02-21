@@ -166,6 +166,7 @@ body{
     font-size: 20px;
     margin-bottom: 5px;
     margin-top: 5px;
+    
 }
 .topo-pergunta{
     display: flex;
@@ -243,6 +244,8 @@ body{
     line-height: 20px;
     margin: 0 4.79% 0 4.79%;
     padding-bottom: 14px;
+    max-width: 340px;
+    overflow: hidden;
 }
 .final-pag-quizz{
     display: flex;
@@ -268,59 +271,11 @@ body{
     padding: 12px;
     margin-bottom: 66px
 }
-@media(min-width: 1100px){
-    .container-perguntas-quizz{
-        display: flex;
-        justify-content: center;
-        flex-wrap: wrap;
-        margin: 0 150px;
-    }
-    .topo-pergunta{
-        height: auto;
-    }
-    .topo-pergunta p{
-        font-size: 23px;
-    }
-    .pergunta{
-        width: 759px;
-        height: auto;
-    }
-    .img-pergunta img{
-        width: 329.91px;
-        height: 175.2px;
-    }
-    .img-pergunta p{
-        max-width: 329.91px;
-    }
-    
-    .nome-quizz img{
-        object-fit: cover;
-    }
-    .nome-quizz p{
-        font-size: 39px;
-    }
-    .fim-quizz{
-        width: 759px;
-        height: 430px;
-    }
-    .fim-quizz img{
-        width: 364px;
-        height: 273px;
-        margin: 0;
-        margin-right: 21px;
-    }
-    .msg-final{
-        overflow-x: hidden;
-        word-break: keep-all;
-        width: 290px;
-        margin: 0;
-    }
-    .meme-final{
-        display: flex;
-        justify-content: center;
-        margin: 0 4.79% 0;
-    }
+.img-final{
+    max-height: 255px;
+    max-width: 340px;
 }
+
 /* Tela 3  */
 .criacao-quiz{
     margin-top: 106px;
@@ -328,7 +283,7 @@ body{
     /* justify-items: center; */
 }
 .criacao{
-    width: 100vw;
+    width: 360px;
     margin: 0 auto 19px;
     display: flex;
     justify-content: center;
@@ -353,13 +308,15 @@ body{
 }
 
  .pergunta1{ /*MUDEI O NOME PQ JA TINHA CRIADO UMA CLASSE PERGUNTA */
-    width: 341px;
+    width: 600px;
+    padding: 10px 0;
     margin-top: 12px;
     margin-bottom: 12px;
     font-weight: 700;
     font-size: 20px;
     display: flex;
     justify-content: space-between;   
+    background-color: #FFFFFF;
 }
 
 .abrir-pergunta{
@@ -378,7 +335,7 @@ body{
 
 .caixa>li>input{
     height: 46px;
-    width: 90vw;
+    width: 330px;
     border-radius: 5px;
     border: 1px solid #D1D1D1;
     font-size: 19px;
@@ -435,12 +392,6 @@ textarea::placeholder {
     align-items: center;
 }
 
-
-
-
-
-
-
 /* ................................................................ */
 /* Utilitarios */
 .none{
@@ -458,3 +409,100 @@ textarea::placeholder {
 /* .resposta-selecionada{
 
 } */
+
+
+@media(min-width: 1100px){
+    .container-perguntas-quizz{
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin: 0 150px;
+    }
+    .topo-pergunta{
+        height: auto;
+    }
+    .topo-pergunta p{
+        font-size: 23px;
+    }
+    .pergunta{
+        width: 759px;
+        height: auto;
+    }
+    .img-pergunta img{
+        width: 329.91px;
+        height: 175.2px;
+    }
+    .img-pergunta p{
+        max-width: 329.91px;
+    }
+    
+    .nome-quizz img{
+        object-fit: cover;
+    }
+    .nome-quizz p{
+        font-size: 39px;
+    }
+    .fim-quizz{
+        width: 759px;
+        height: 430px;
+    }
+    .fim-quizz img{
+        width: 364px;
+        height: 273px;
+        margin: 0;
+        margin-right: 21px;
+    }
+    .msg-final{
+        overflow-x: hidden;
+        word-break: keep-all;
+        width: 290px;
+        margin: 0;
+    }
+    .meme-final{
+        display: flex;
+        justify-content: center;
+        margin: 0 4.79% 0;
+    }
+
+    .home{
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 1051px;
+        background-color: #fafafa;
+    }
+    .quiz-api{
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .card-quizz{
+        width: 340px;
+    }
+    .seus-quizzes{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
+    .primeira-tela-criacao{
+        width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .segunda-tela-criacao{
+        width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    textarea{
+        width: 580px;
+    }
+    .terceira-tela-criacao{
+        width: 600px;
+        margin-left: auto;
+        margin-right: auto;  
+    }
+    .caixa>li>input{
+        width: 580px;
+    }
+}
+

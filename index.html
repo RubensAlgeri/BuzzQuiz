@@ -36,17 +36,19 @@
     </header>
     <main>
         <section class="home">
-
+            <div class="titulo">
+                <p>Seus Quizes</p>
+                <ion-icon data-identifier="create-quizz" name="add-circle" onclick="criarQuizz()"></ion-icon>
+            </div>
             <div data-identifier="user-quizzes" class="seus-quizzes none">
-                <div class="titulo">
-                    <p>Seus Quizes</p>
-                    <ion-icon data-identifier="create-quizz" name="add-circle" onclick="criarQuizz()"></ion-icon>
-                </div>
+                
                 
                     </div>
 
                 </div>
+                <!---->
             </div>
+
             <!-- ...... -->
             <div class="container criar-quizz " >
                 <p>Você não criou nenhum quizz ainda :(</p>
@@ -117,11 +119,11 @@
                     <p>Agora, decida os níveis!</p>
                 </div>
                 <ul class="caixa">
-                    <div class="pergunta ">Nível 1</div>
+                    <div class="pergunta1 ">Nível 1</div>
                     <li><input class="titulo-nivel" type="text" placeholder="Título do nível"></li>
                     <li><input class="acerto-minimo" type="text" placeholder="% de acerto mínima"></li>
                     <li><input class="img-nivel" type="text" placeholder="URL da imagem do nível"></li>
-                    <li><textarea class="descricao-nivel" placeholder="Descrição do nível" class="criar-descricao" cols="35" rows="5"></textarea></li>
+                    <li><textarea class="descricao descricao-nivel" placeholder="Descrição do nível" class="criar-descricao" cols="35" rows="5"></textarea></li>
 
                 </ul>
 

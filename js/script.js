@@ -168,7 +168,7 @@ function checarFimDoQuizz(){
         <p>${minValue}% de acerto: ${element.title}</p>
         </header>
         <div class="meme-final">
-        <img src="${element.image}" alt="meme de harry potter">
+        <img class="img-final" src="${element.image}">
         <p class="msg-final">${element.text}</p>
         </div>`
     }

@@ -48,23 +48,23 @@ function criarPerguntas() {
             <p>Crie suas perguntas</p>
         </div>
         <ul class="caixa">
-                    <div class="pergunta pergunta1">Pergunta 1</div>
+                    <div class="pergunta1">Pergunta 1</div>
                     <li><input class="texto1" type="text" placeholder="Texto da pergunta"></li>
                     <li><input class="cor1" type="text" placeholder="Cor de fundo da pergunta"></li> 
                 
-                    <div class="pergunta ">Resposta correta</div> 
+                    <div class="pergunta1">Resposta correta</div> 
                     <li><input class="correta1" type="text" placeholder="Resposta correta"></li>
                     <li><input class="imagem1" type="text" placeholder="URL da imagem"></li>
                 
-                    <div class="pergunta">Respostas incorretas</div>
+                    <div class="pergunta1">Respostas incorretas</div>
                     <li><input class="incorreta11" type="text" placeholder="Resposta incorreta 1"></li>
                     <li><input class="img-incorreta11" type="text" placeholder="URL da imagem 1"></li> 
                 
-                    <div class="pergunta"></div> 
+                    <div class="pergunta1"></div> 
                     <li><input class="incorreta12"  type="text" placeholder="Resposta incorreta 2"></li>
                     <li><input class="img-incorreta12"  type="text" placeholder="URL da imagem 2"></li>
                 
-                    <div class="pergunta"></div> 
+                    <div class="pergunta1"></div> 
                     <li><input class="incorreta13" type="text" placeholder="Resposta incorreta 3"></li>
                     <li><input class="img-incorreta13" type="text" placeholder="URL da imagem 3"></li>
                 </ul>
@@ -73,25 +73,25 @@ function criarPerguntas() {
         document.querySelector(".segunda-tela-criacao").innerHTML = document.querySelector(".segunda-tela-criacao").innerHTML +
             `
             <div onclick="abrirPergunta(this)">    
-            <div class="pergunta"><p>Pergunta ${i + 2}<p><ion-icon class="icone-perguntas" name="reader-outline"></ion-icon></div> 
+            <div class="pergunta1"><p>Pergunta ${i + 2}</p><ion-icon class="icone-perguntas" name="reader-outline"></ion-icon></div> 
             <ul class="caixa caixa${i + 2} none">
-                    <div class="pergunta pergunta${i + 2}">Pergunta ${i + 2}</div>
+                    <div class="pergunta1 pergunta${i + 2}">Pergunta ${i + 2}</div>
                     <li><input class="texto${i + 2}" type="text" placeholder="Texto da pergunta"></li>
                     <li><input class="cor${i + 2}" type="text" placeholder="Cor de fundo da pergunta"></li> 
                 
-                    <div class="pergunta ">Resposta correta</div> 
+                    <div class="pergunta1 ">Resposta correta</div> 
                     <li><input class="correta${i + 2}" type="text" placeholder="Resposta correta"></li>
                     <li><input class="imagem${i + 2}" type="text" placeholder="URL da imagem"></li>
                 
-                    <div class="pergunta">Respostas incorretas</div>
+                    <div class="pergunta1">Respostas incorretas</div>
                     <li><input class="incorreta${i + 2}1" type="text" placeholder="Resposta incorreta 1"></li>
                     <li><input class="img-incorreta${i + 2}1" type="text" placeholder="URL da imagem 1"></li> 
                 
-                    <div class="pergunta"></div> 
+                    <div class="pergunta1"></div> 
                     <li><input class="incorreta${i + 2}2" type="text" placeholder="Resposta incorreta 2"></li>
                     <li><input class="img-incorreta${i + 2}2" type="text" placeholder="URL da imagem 2"></li>
                 
-                    <div class="pergunta"></div> 
+                    <div class="pergunta1"></div> 
                     <li><input class="incorreta${i + 2}3" type="text" placeholder="Resposta incorreta 3"></li>
                     <li><input class="img-incorreta${i + 2}3" type="text" placeholder="URL da imagem 3"></li>
                 </ul>
@@ -206,7 +206,7 @@ function prosseguir33(){
     document.querySelector(".terceira-tela-criacao").classList.remove("none")
     document.querySelector(".terceira-tela-criacao").innerHTML = `
     <ul class="caixa">
-        <div class="pergunta ">Nível 1</div>
+        <div class="pergunta1 ">Nível 1</div>
         <li><input class="titulo-nivel1" type="text" placeholder="Título do nível"></li>
         <li><input class="acerto-minimo1" type="text" placeholder="% de acerto mínima"></li>
         <li><input class="img-nivel1" type="text" placeholder="URL da imagem do nível"></li>
@@ -217,7 +217,7 @@ function prosseguir33(){
         document.querySelector(".terceira-tela-criacao").innerHTML = document.querySelector(".terceira-tela-criacao").innerHTML + 
         `
     <ul class="caixa">
-        <div class="pergunta ">Nível ${i+2}</div>
+        <div class="pergunta1 ">Nível ${i+2}</div>
         <li><input class="titulo-nivel${i+2}" type="text" placeholder="Título do nível"></li>
         <li><input class="acerto-minimo${i+2}" type="text" placeholder="% de acerto mínima"></li>
         <li><input class="img-nivel${i+2}" type="text" placeholder="URL da imagem do nível"></li>
@@ -370,6 +370,6 @@ function casoDoErro(erro){
 }
 
 function abrirPergunta(elemento){
-    elemento.querySelector(".pergunta").classList.add("none")
+    elemento.querySelector(".pergunta1").classList.add("none")
     elemento.querySelector(".caixa").classList.remove("none")
 }
