@@ -308,7 +308,7 @@ body{
 }
 
  .pergunta1{ /*MUDEI O NOME PQ JA TINHA CRIADO UMA CLASSE PERGUNTA */
-    width: 600px;
+    width: 300px;
     padding: 10px 0;
     margin-top: 12px;
     margin-bottom: 12px;
@@ -319,6 +319,10 @@ body{
     background-color: #FFFFFF;
 }
 
+.sumir{
+    margin-left: auto;
+    margin-right: auto;
+}
 .abrir-pergunta{
     width: 100vw;
     padding: 10px 0 10px 0;
@@ -503,6 +507,18 @@ textarea::placeholder {
     }
     .caixa>li>input{
         width: 580px;
+    }
+
+    .pergunta1{ /*MUDEI O NOME PQ JA TINHA CRIADO UMA CLASSE PERGUNTA */
+        width: 600px;
+        padding: 10px 0;
+        margin-top: 12px;
+        margin-bottom: 12px;
+        font-weight: 700;
+        font-size: 20px;
+        display: flex;
+        justify-content: space-between;   
+        background-color: #FFFFFF;
     }
 }
 

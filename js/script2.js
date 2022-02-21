@@ -73,7 +73,7 @@ function criarPerguntas() {
         document.querySelector(".segunda-tela-criacao").innerHTML = document.querySelector(".segunda-tela-criacao").innerHTML +
             `
             <div onclick="abrirPergunta(this)">    
-            <div class="pergunta1"><p>Pergunta ${i + 2}</p><ion-icon class="icone-perguntas" name="reader-outline"></ion-icon></div> 
+            <div class="pergunta1 sumir"><p>Pergunta ${i + 2}</p><ion-icon class="icone-perguntas" name="reader-outline"></ion-icon></div> 
             <ul class="caixa caixa${i + 2} none">
                     <div class="pergunta1 pergunta${i + 2}">Pergunta ${i + 2}</div>
                     <li><input class="texto${i + 2}" type="text" placeholder="Texto da pergunta"></li>
@@ -321,7 +321,9 @@ function telaSucesso(quizz){
     
     console.log(quizz)
     document.querySelector(".final-tela-criacao").classList.remove("none");
-    document.querySelector(".terceira-tela-criacao").classList.add("none")
+    document.querySelector(".terceira-tela-criacao").classList.add("none");
+    document.querySelector(".seus-quizzes").classList.remove("none")
+    document.querySelector(".criar-quizz").classList.add("none")
     console.log(id)
     console.log(idDoQuizz.id)
     document.querySelector(".final-tela-criacao").innerHTML = 
@@ -370,6 +372,6 @@ function casoDoErro(erro){
 }
 
 function abrirPergunta(elemento){
-    elemento.querySelector(".pergunta1").classList.add("none")
+    elemento.querySelector(".sumir").classList.add("none")
     elemento.querySelector(".caixa").classList.remove("none")
 }
