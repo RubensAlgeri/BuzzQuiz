@@ -72,8 +72,9 @@ function criarPerguntas() {
     for (let i = 0; i < (criarQntPerguntas - 1); i++) {
         document.querySelector(".segunda-tela-criacao").innerHTML = document.querySelector(".segunda-tela-criacao").innerHTML +
             `
-        <!-- <div class="pergunta abrir-pergunta" onclick="abrirPergunta()"><p>Pergunta ${i + 2}<p><ion-icon class="icone-perguntas" name="reader-outline"></ion-icon></div> -->
-        <ul class="caixa caixa${i + 2}">
+            <div onclick="abrirPergunta(this)">    
+            <div class="pergunta"><p>Pergunta ${i + 2}<p><ion-icon class="icone-perguntas" name="reader-outline"></ion-icon></div> 
+            <ul class="caixa caixa${i + 2} none">
                     <div class="pergunta pergunta${i + 2}">Pergunta ${i + 2}</div>
                     <li><input class="texto${i + 2}" type="text" placeholder="Texto da pergunta"></li>
                     <li><input class="cor${i + 2}" type="text" placeholder="Cor de fundo da pergunta"></li> 
@@ -94,6 +95,7 @@ function criarPerguntas() {
                     <li><input class="incorreta${i + 2}3" type="text" placeholder="Resposta incorreta 3"></li>
                     <li><input class="img-incorreta${i + 2}3" type="text" placeholder="URL da imagem 3"></li>
                 </ul>
+        </div>     
         `
     }
     document.querySelector(".segunda-tela-criacao").innerHTML = document.querySelector(".segunda-tela-criacao").innerHTML + 
@@ -365,4 +367,9 @@ function enviarNiveis(){
 }
 function casoDoErro(erro){
     console.log(erro.response);
+}
+
+function abrirPergunta(elemento){
+    elemento.querySelector(".pergunta").classList.add("none")
+    elemento.querySelector(".caixa").classList.remove("none")
 }

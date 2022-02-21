@@ -95,6 +95,7 @@ body{
     display:flex;
     justify-content: flex-end;
     color: white;
+    overflow: hidden;
     margin-top: 10px;
     position: relative;
     
@@ -154,12 +155,17 @@ body{
     padding: 0 4.79%;
 }
 .pergunta{
+    padding:10px 0 ;
     display: flex;
     flex-wrap: wrap;
+    align-items: center;
     height: auto;
     width: 100vw;
     background-color:  #FFFFFF;
-    margin-bottom: 28px
+    font-weight: 700;
+    font-size: 20px;
+    margin-bottom: 5px;
+    margin-top: 5px;
 }
 .topo-pergunta{
     display: flex;
