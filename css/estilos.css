@@ -233,9 +233,13 @@ body{
     line-height: 22px;
     text-align: center;
 }
+.meme-final{
+    width: 100%;
+}
 .fim-quizz img{
     margin: 0 4.79% 9px 4.79%;
-    width: 91.42%;
+    width: 90.42%;
+    height: auto;
 }
 .msg-final{
     color: #484848;
@@ -244,8 +248,8 @@ body{
     line-height: 20px;
     margin: 0 4.79% 0 4.79%;
     padding-bottom: 14px;
-    max-width: 340px;
     overflow: hidden;
+    word-break: break-all;
 }
 .final-pag-quizz{
     display: flex;
@@ -271,10 +275,7 @@ body{
     padding: 12px;
     margin-bottom: 66px
 }
-.img-final{
-    max-height: 255px;
-    max-width: 340px;
-}
+
 
 /* Tela 3  */
 .criacao-quiz{

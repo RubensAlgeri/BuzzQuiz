@@ -30,7 +30,6 @@ function buscarQuizz() {
 function promessaCumprida(resposta) {
     quantidadeDeCards = resposta.data.length;
     cardQuizz = resposta.data;
-    console.log("CARDQUIZZ: "+cardQuizz)
     renderizarQuizzes(cardQuizz);
     }
 
@@ -195,7 +194,7 @@ let quizzArmazenado;
 let quizzArmazenadoDeserializado;
 function seusQuizzes(){
     if (localStorage.getItem("Quizzes") !== null){
-
+        document.querySelector(".titulo").classList.remove("none")
         document.querySelector(".seus-quizzes").classList.remove("none")
         document.querySelector(".criar-quizz").classList.add("none")
         
@@ -221,7 +220,6 @@ function criarQuizz(){
 }
 
 
-
 function voltar(){
     verificar = 0;
     acertos = 0;
@@ -232,7 +230,6 @@ function voltar(){
     document.querySelector(".fim-quizz").classList.add("none");
     document.querySelector(".pagina-quizz").classList.add("none");
     document.querySelector(".home").classList.remove("none")
-    setTimeout(function(){(document.querySelector(".seus-quizzes").scrollIntoView({block: "center", behavior: "smooth"}))},200);
 }
 
 

@@ -288,7 +288,6 @@ function finalizarQuizz(){
     promessaQuizz = axios.post("https://mock-api.driven.com.br/api/v4/buzzquizz/quizzes",novoQuizz);
     promessaQuizz.then(telaSucesso);
     promessaQuizz.catch(casoDoErro);
-    // objeto1.push(novoQuizz)
     
 }
 let idDoQuizz;
@@ -319,24 +318,22 @@ function telaSucesso(quizz){
         );
     }
     
-    console.log(quizz)
     document.querySelector(".final-tela-criacao").classList.remove("none");
     document.querySelector(".terceira-tela-criacao").classList.add("none");
     document.querySelector(".seus-quizzes").classList.remove("none")
     document.querySelector(".criar-quizz").classList.add("none")
-    console.log(id)
-    console.log(idDoQuizz.id)
+
     document.querySelector(".final-tela-criacao").innerHTML = 
     `<div class="criacao titulo">
         <p>Seu quizz está pronto!</p>
     </div>
-    <div class="container card-quizz onclick="acessarQuizz(${id})">
-        <div class="layer" onclick="acessarQuizz(${idDoQuizz.id})"></div>
+    <div class="container card-quizz">
+        <div class="layer"></div>
         <img src="${novoQuizz.image}" alt="">
         <span>${novoQuizz.title}</span>
     </div>
     <footer class="final-pag-quizz">
-        <button onclick="reiniciarQuizz()" class="reiniciar-quizz">Reiniciar Quizz</button>
+        <button onclick="acessarQuizz(${id})" class="reiniciar-quizz">Acessar Quizz</button>
         <p onclick="voltar()" class="voltar-home">Voltar pra home</p>
     </footer>
     `
